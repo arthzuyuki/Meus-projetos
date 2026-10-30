@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Horta automatizada</title><meta name="description" content="Irrigação automática, sensores de umidade e temperatura e um simulador de rega."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap"><link rel="stylesheet" href="style.css"></head><body><header class="top"><div class="wrap bar"><a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 25 V14 M16 18 C11 18 8.5 15 8 11 C12.5 11 15.5 13.5 16 18 Z M16 15 C20 15 23.5 12.5 24 8 C19.5 8 16.5 10.5 16 15 Z" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Portal da Horta</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span aria-hidden="true"></span><span class="txt">Menu</span></button><nav class="site-nav" id="site-nav" aria-label="Principal"><ul><li><a href="index.html">Início</a></li><li><a href="projeto.html">Conheça o projeto</a></li><li><a href="plantio.html">Plantio</a></li><li><a href="plantas.html">Plantas</a></li><li><a href="automacao.html" aria-current="page">Automação</a></li><li><a href="diario.html">Diário</a></li><li><a href="midia.html">Fotos e vídeos</a></li><li><a href="sobre.html">Sobre</a></li></ul></nav><div class="lang" role="group" aria-label="Idioma do site"><button type="button" data-lang="pt" lang="pt-BR" aria-pressed="true" title="Português">PT</button><button type="button" data-lang="en" lang="en" aria-pressed="false" title="English">EN</button><button type="button" data-lang="es" lang="es-CL" aria-pressed="false" title="Español (Chile)">ES</button></div></div><div class="wrap"><header class="page-head"><p class="crumbs"><a href="index.html">Início</a> / Horta automatizada</p><h1>Horta automatizada</h1><p class="lead">Sensores medem. Um controlador decide. A água chega sozinha.</p></header></div></header><main class="wrap">
+<div class="note water">Os componentes citados abaixo são exemplos comuns. O grupo deve trocar pelos que realmente usa na horta.</div>
+
+<section class="sec" id="irrigacao"><p class="kicker">Parte 1</p><h2>Irrigação automática</h2>
+  <p>É um sistema que liga a água sozinho, na hora e na quantidade certas. Existem três formas comuns:</p>
+  <ul class="checks"><li><b>Gotejamento:</b> mangueira com pequenos furos ou gotejadores junto às raízes. Gasta pouco e molha o solo, não as folhas.</li><li><b>Microaspersão:</b> borrifa gotas finas sobre uma área pequena.</li><li><b>Aspersão:</b> espalha água como chuva. Serve para áreas maiores e gasta mais.</li></ul>
+  <p>Em hortas pequenas, o gotejamento costuma ser a escolha mais econômica.</p>
+</section>
+
+<section class="sec" id="umidade"><p class="kicker">Parte 2</p><h2>Sensor de umidade</h2>
+  <p>Mede quanta água existe no solo. É ele que diz ao sistema se a planta está com sede.</p>
+  <div class="two">
+    <div class="card water"><span class="tag">Tipo</span><h3>Resistivo</h3><p>Barato, mas as pontas metálicas enferrujam com o tempo.</p></div>
+    <div class="card water"><span class="tag">Tipo</span><h3>Capacitivo</h3><p>Dura mais, porque não fica em contato direto com a água do solo.</p></div>
+  </div>
+  <p class="note water">Calibre o sensor antes de usar: anote a leitura com o solo bem seco e outra com o solo bem molhado. Esses dois valores definem a escala.</p>
+</section>
+
+<section class="sec" id="temperatura"><p class="kicker">Parte 3</p><h2>Sensor de temperatura</h2>
+  <p>Mede o calor do ar ou do solo. Serve para avisar sobre calor ou frio demais e para evitar regar no sol forte.</p>
+  <ul class="checks"><li><b>DHT11 e DHT22:</b> medem temperatura e umidade do ar.</li><li><b>DS18B20:</b> versão à prova d'água, que pode ficar enterrada no solo.</li></ul>
+</section>
+
+<section class="sec" id="funcionamento"><p class="kicker">Parte 4</p><h2>Como funciona o sistema</h2>
+  <ol class="flow">
+    <li><b>1. Sensor</b><span>mede a umidade do solo</span></li>
+    <li><b>2. Controlador</b><span>compara com o limite (Arduino ou ESP32)</span></li>
+    <li><b>3. Relé</b><span>liga a energia da bomba ou da válvula</span></li>
+    <li><b>4. Bomba ou válvula</b><span>manda água para o solo</span></li>
+  </ol>
+  <p>Depois da rega, o sensor mede de novo. Quando a umidade passa do limite, o controlador desliga a bomba.</p>
+  <p class="note water">Eletricidade e água não combinam. Use fonte de baixa tensão e guarde os fios e o controlador em uma caixa fechada.</p>
+</section>
+
+<section class="sec" id="simulador"><h2>Simulador de rega</h2>
+  <p>Simulação simples, só para entender a lógica. Os valores não vêm de uma horta real.</p>
+  <div class="sim" id="sim">
+    <div class="sim-controls">
+      <div class="ctl"><label for="umid">Umidade do solo: <output id="umidOut">45</output>%</label><input type="range" id="umid" min="0" max="100" value="45"></div>
+      <div class="ctl"><label for="limite">Liga abaixo de: <output id="limOut">40</output>%</label><input type="range" id="limite" min="10" max="80" value="40"></div>
+      <div class="ctl"><label for="temp">Temperatura: <output id="tempOut">26</output> °C</label><input type="range" id="temp" min="5" max="45" value="26"></div>
+    </div>
+    <div class="sim-view">
+      <div><div class="gauge" aria-hidden="true"><div class="gauge-fill" id="fill"></div><div class="gauge-mark" id="mark"></div></div>
+      <p class="gauge-legend">barra azul: umidade · traço vermelho: limite</p></div>
+      <span class="pump off" id="pump" role="status">Bomba desligada</span>
+      <p id="simMsg" aria-live="polite"></p>
+      <button class="btn alt" type="button" id="avancar">Avançar 1 hora</button>
+      <p class="muted" style="font-size:.9rem">Para a bomba não ligar e desligar toda hora, ela só desliga quando a umidade passa 10 pontos do limite.</p>
+    </div>
+  </div>
+</section>
+<div class="pager"><a href="plantas.html">← Plantas</a><a href="diario.html">Diário da nossa horta →</a></div>
+</main><footer class="site-footer"><div class="wrap"><div class="foot-grid">
+<div><a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 25 V14 M16 18 C11 18 8.5 15 8 11 C12.5 11 15.5 13.5 16 18 Z M16 15 C20 15 23.5 12.5 24 8 C19.5 8 16.5 10.5 16 15 Z" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Portal da Horta</a><p>Aprenda a criar sua própria horta comunitária e utilizar tecnologia para facilitar seus cuidados.</p></div>
+<div><h3>Aprender</h3><ul><li><a href="plantio.html">Criando uma horta</a></li><li><a href="plantas.html">Plantas</a></li><li><a href="automacao.html">Horta automatizada</a></li></ul></div>
+<div><h3>Nossa horta</h3><ul><li><a href="projeto.html">Conheça o projeto</a></li><li><a href="diario.html">Diário</a></li><li><a href="midia.html">Fotos e vídeos</a></li><li><a href="sobre.html">Quem desenvolveu o projeto</a></li></ul></div>
+</div><p class="foot-base">Portal da Horta · projeto escolar. As imagens são ilustrativas, geradas por IA, até o grupo colocar as fotos reais da horta.</p></div></footer><script src="i18n.js"></script><script src="script.js"></script></body></html>
