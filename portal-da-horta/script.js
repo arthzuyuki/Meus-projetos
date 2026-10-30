@@ -1,6 +1,42 @@
 (function () {
   document.documentElement.classList.add('js');
 
+  // Animação ao rolar: cada bloco aparece quando entra na tela.
+  var blocos = document.querySelectorAll('.sec>h2,.sec>.kicker,.sec>p,.process li,.about>*,.partners>*,.card,.facts,.flow li,details.faq,.gallery figure,.school,.tabs,.sim,form.diario,ol.steps li,ul.checks li,.note,.todo,.pager');
+  if ('IntersectionObserver' in window) {
+    document.documentElement.classList.add('anim');
+    var mostrar = function (el) {
+      el.classList.add('in');
+      obs.unobserve(el);
+      // terminada a entrada, devolve o bloco ao estilo normal (para o efeito de passar o mouse continuar rápido)
+      setTimeout(function () { el.classList.remove('reveal', 'in'); el.style.transitionDelay = ''; }, 1300);
+    };
+    var obs = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) {
+        if (!e.isIntersecting && e.boundingClientRect.top > 0) { return; }
+        mostrar(e.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    blocos.forEach(function (el) {
+      var irmaos = Array.prototype.indexOf.call(el.parentNode.children, el);
+      el.style.transitionDelay = Math.min(irmaos, 5) * 70 + 'ms';
+      el.classList.add('reveal');
+      obs.observe(el);
+    });
+    // rolagem muito rápida pode pular um bloco; este controle mostra tudo o que já passou pela tela
+    var pendente = false;
+    window.addEventListener('scroll', function () {
+      if (pendente) { return; }
+      pendente = true;
+      requestAnimationFrame(function () {
+        pendente = false;
+        document.querySelectorAll('.reveal:not(.in)').forEach(function (el) {
+          if (el.getBoundingClientRect().top < window.innerHeight) { mostrar(el); }
+        });
+      });
+    }, { passive: true });
+  }
+
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.getElementById('site-nav');
   if (toggle && nav) {

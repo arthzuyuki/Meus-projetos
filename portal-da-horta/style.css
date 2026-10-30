@@ -31,7 +31,6 @@
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:18px;line-height:1.65;overflow-x:hidden}
 .wrap{max-width:1140px;margin-inline:auto;padding-inline:max(16px,env(safe-area-inset-left,0px))}
 img{max-width:100%}
@@ -321,7 +320,7 @@ form.diario .btn{align-self:flex-start}
 @keyframes drift{to{background-position:22px 0}}
 @keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
-@media (prefers-reduced-motion: no-preference){
+/* As animações rodam sempre, em qualquer navegador, sem depender de configuração do sistema. */
   /* entrada do topo, uma vez ao abrir a página */
   .hero-text>*,.page-head>*{animation:rise .7s var(--ease-out) both}
   .hero-text>:nth-child(2),.page-head>:nth-child(2){animation-delay:.08s}
@@ -329,11 +328,9 @@ form.diario .btn{align-self:flex-start}
   .hero-text>:nth-child(4){animation-delay:.24s}
   .hero-art .slot{animation:settle .9s var(--ease-out) .1s both}
 
-  /* aparece ao rolar (só em navegadores com suporte; nos outros o conteúdo já está visível) */
-  @supports (animation-timeline: view()){
-    .sec>h2,.sec>.kicker,.process li,.about>*,.partners>*,.card,.facts,.flow li,details.faq,.gallery figure,.school,.tabs,.sim,form.diario,ol.steps li,ul.checks li{
-      animation:reveal linear both;animation-timeline:view();animation-range:entry 0% entry 40%}
-  }
+  /* aparece ao rolar: o script.js marca os blocos com .reveal e acrescenta .in quando entram na tela */
+  .anim .reveal{opacity:0;transform:translateY(32px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+  .anim .reveal.in{opacity:1;transform:none}
 
   /* folhas da faixa balançando devagar */
   .band .deco.l{transform-origin:50% 100%;animation:sway 5s var(--ease-in-out) infinite alternate}
@@ -365,7 +362,6 @@ form.diario .btn{align-self:flex-start}
 
   /* bomba ligada pulsando de leve */
   .pump.on{animation:pulse 1.6s var(--ease-in-out) infinite}
-}
 @keyframes pulse{50%{box-shadow:0 0 0 8px color-mix(in srgb,var(--water) 18%,transparent)}}
 @media (max-width:480px){
   .nav-toggle{padding:10px 12px}
