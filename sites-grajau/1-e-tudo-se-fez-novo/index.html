@@ -5,10 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>E tudo se fez novo</title>
+<meta name="description" content="Instalação e manutenção elétrica, ar-condicionado e câmeras de segurança no Grajaú, São Paulo. Agende sua visita pelo WhatsApp.">
+<meta name="theme-color" content="#0a2a52">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://e-tudo-se-fez-novo.vercel.app/">
+<meta property="og:title" content="E tudo se fez novo · Elétrica, climatização e CFTV no Grajaú">
+<meta property="og:description" content="Instalação e manutenção elétrica, ar-condicionado e câmeras de segurança no Grajaú, São Paulo. Agende sua visita pelo WhatsApp.">
+<meta property="og:image" content="https://e-tudo-se-fez-novo.vercel.app/og.jpg">
+<meta property="og:image:secure_url" content="https://e-tudo-se-fez-novo.vercel.app/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="E tudo se fez novo · Elétrica, climatização e CFTV no Grajaú">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="E tudo se fez novo · Elétrica, climatização e CFTV no Grajaú">
+<meta name="twitter:description" content="Instalação e manutenção elétrica, ar-condicionado e câmeras de segurança no Grajaú, São Paulo. Agende sua visita pelo WhatsApp.">
+<meta name="twitter:image" content="https://e-tudo-se-fez-novo.vercel.app/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
+  --mq-bg:#cf2a36; --mq-ink:#fff; --mq-dot:#ffd54a;
   --focus:#1565c8; --menu-bg:#0a2a52; --menu-ink:#fff;
   --navy:#0a2a52; --blue:#1565c8; --sky:#e8f1fb; --red:#cf2a36; --red-d:#b01f2b;
   --ink:#0f1d2e; --muted:#5a6b80; --line:#dbe5f0; --white:#fff;
@@ -145,6 +167,7 @@ footer ul{list-style:none;display:grid;gap:6px;font-size:14px}
 </style>
 <link rel="stylesheet" href="agendamento.css">
 <link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="motion.css">
 </head>
 <body>
 <div class="demo-flag">Prévia do novo site · em aprovação</div>
@@ -152,7 +175,7 @@ footer ul{list-style:none;display:grid;gap:6px;font-size:14px}
 
 <div class="topbar"><div class="wrap"><span>Elétrica · Climatização · CFTV · Grajaú, São Paulo</span><span>(11) 99760-9573</span></div></div>
 
-<header class="hero">
+<header class="hero" data-px-bg="0.35">
   <div class="wrap">
     <nav class="nav">
       <a class="brand" href="#"><span class="brand-mark"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span></span><span>E tudo se fez novo<small>elétrica, climatização e CFTV</small></span></a>
@@ -170,7 +193,7 @@ footer ul{list-style:none;display:grid;gap:6px;font-size:14px}
           <div class="rating"><b>5,0</b><span><span class="stars">★★★★★</span><br>250 avaliações no Google</span></div>
         </div>
       </div>
-      <div class="hero-photo" data-reveal="zoom" style="--d:.2s"><img src="img/ar.jpg" alt="Manutenção de ar-condicionado com manômetros conectados"></div>
+      <div class="hero-photo" data-bob data-reveal="zoom" style="--d:.2s"><img src="img/ar.jpg" alt="Manutenção de ar-condicionado com manômetros conectados"></div>
     </div>
   </div>
 </header>
@@ -196,6 +219,7 @@ footer ul{list-style:none;display:grid;gap:6px;font-size:14px}
   </article>
 </div>
 
+<div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Elétrica residencial<i></i></span><span>Ar-condicionado<i></i></span><span>Câmeras de segurança<i></i></span><span>Quadros de distribuição<i></i></span><span>Chuveiros e tomadas<i></i></span><span>Elétrica residencial<i></i></span><span>Ar-condicionado<i></i></span><span>Câmeras de segurança<i></i></span><span>Quadros de distribuição<i></i></span><span>Chuveiros e tomadas<i></i></span><span>Elétrica residencial<i></i></span><span>Ar-condicionado<i></i></span><span>Câmeras de segurança<i></i></span><span>Quadros de distribuição<i></i></span><span>Chuveiros e tomadas<i></i></span><span>Elétrica residencial<i></i></span><span>Ar-condicionado<i></i></span><span>Câmeras de segurança<i></i></span><span>Quadros de distribuição<i></i></span><span>Chuveiros e tomadas<i></i></span></div></div>
 <section class="services" id="servicos">
   <div class="wrap">
     <div class="title" data-reveal>
@@ -203,10 +227,10 @@ footer ul{list-style:none;display:grid;gap:6px;font-size:14px}
       <p>Um só contato para a parte elétrica, o ar-condicionado e a segurança do seu imóvel.</p>
     </div>
     <div class="svc-grid" data-stagger="0.1">
-      <article class="svc"><div class="ph"><img src="img/quadro.jpg" alt="Quadro elétrico com disjuntores sendo montado" style="object-position:center 40%"></div><div class="cap"><h3>Quadro elétrico</h3><span>Montagem e organização</span></div></article>
-      <article class="svc"><div class="ph"><img src="img/ar.jpg" alt="Ferramentas de manutenção de ar-condicionado"></div><div class="cap"><h3>Ar-condicionado</h3><span>Instalação e manutenção</span></div></article>
-      <article class="svc"><div class="ph"><img src="img/chuveiro.jpg" alt="Chuveiro elétrico instalado em banheiro"></div><div class="cap"><h3>Chuveiros e tomadas</h3><span>Troca e instalação</span></div></article>
-      <article class="svc"><div class="ph noimg"><svg viewBox="0 0 24 24"><path d="M3 7h13l3 4-3 4H3z"/><circle cx="9" cy="11" r="2"/><path d="M7 15v5M5 20h4"/></svg></div><div class="cap"><h3>Câmeras (CFTV)</h3><span>Instalação e configuração</span></div></article>
+      <article class="svc" data-tilt><div class="ph"><img data-px="0.08" src="img/quadro.jpg" alt="Quadro elétrico com disjuntores sendo montado" style="object-position:center 40%"></div><div class="cap"><h3>Quadro elétrico</h3><span>Montagem e organização</span></div></article>
+      <article class="svc" data-tilt><div class="ph"><img data-px="0.08" src="img/ar.jpg" alt="Ferramentas de manutenção de ar-condicionado"></div><div class="cap"><h3>Ar-condicionado</h3><span>Instalação e manutenção</span></div></article>
+      <article class="svc" data-tilt><div class="ph"><img data-px="0.08" src="img/chuveiro.jpg" alt="Chuveiro elétrico instalado em banheiro"></div><div class="cap"><h3>Chuveiros e tomadas</h3><span>Troca e instalação</span></div></article>
+      <article class="svc" data-tilt><div class="ph noimg"><svg viewBox="0 0 24 24"><path d="M3 7h13l3 4-3 4H3z"/><circle cx="9" cy="11" r="2"/><path d="M7 15v5M5 20h4"/></svg></div><div class="cap"><h3>Câmeras (CFTV)</h3><span>Instalação e configuração</span></div></article>
     </div>
   </div>
 </section>
@@ -233,11 +257,11 @@ footer ul{list-style:none;display:grid;gap:6px;font-size:14px}
   <div class="wrap">
     <div class="title" data-reveal><h2>Trabalhos recentes</h2></div>
     <div class="gallery" data-stagger="0.08">
-      <figure><img src="img/quadro.jpg" alt="Quadro elétrico em montagem" style="object-position:center 42%"><figcaption>Quadro de distribuição</figcaption></figure>
-      <figure><img src="img/ar.jpg" alt="Manutenção de ar-condicionado"><figcaption>Climatização</figcaption></figure>
-      <figure><img src="img/tomada.jpg" alt="Interruptor e tomada novos"><figcaption>Tomadas</figcaption></figure>
-      <figure><img src="img/chuveiro.jpg" alt="Chuveiro instalado"><figcaption>Chuveiro</figcaption></figure>
-      <figure><img src="img/antes-depois.jpg" alt="Antes e depois de tomada"><figcaption>Antes e depois</figcaption></figure>
+      <figure data-reveal="wipe"><img src="img/quadro.jpg" alt="Quadro elétrico em montagem" style="object-position:center 42%"><figcaption>Quadro de distribuição</figcaption></figure>
+      <figure data-reveal="wipe"><img src="img/ar.jpg" alt="Manutenção de ar-condicionado"><figcaption>Climatização</figcaption></figure>
+      <figure data-reveal="wipe"><img src="img/tomada.jpg" alt="Interruptor e tomada novos"><figcaption>Tomadas</figcaption></figure>
+      <figure data-reveal="wipe"><img src="img/chuveiro.jpg" alt="Chuveiro instalado"><figcaption>Chuveiro</figcaption></figure>
+      <figure data-reveal="wipe"><img src="img/antes-depois.jpg" alt="Antes e depois de tomada"><figcaption>Antes e depois</figcaption></figure>
     </div>
   </div>
 </section>
@@ -273,6 +297,7 @@ footer ul{list-style:none;display:grid;gap:6px;font-size:14px}
   </div>
 </footer>
 <script src="site.js"></script>
+<script src="motion.js"></script>
 <script src="agendamento.js"></script>
 </body>
 </html>

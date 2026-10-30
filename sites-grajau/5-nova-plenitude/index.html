@@ -5,10 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Nova Plenitude</title>
+<meta name="description" content="Pães, bolos, doces, lanches e pizzas. Loja aberta 24 horas, delivery no almoço e à noite.">
+<meta name="theme-color" content="#c41f2a">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://nova-plenitude.vercel.app/">
+<meta property="og:title" content="Nova Plenitude · Padaria & Pizzaria 24h no Jardim Eliana">
+<meta property="og:description" content="Pães, bolos, doces, lanches e pizzas. Loja aberta 24 horas, delivery no almoço e à noite.">
+<meta property="og:image" content="https://nova-plenitude.vercel.app/og.jpg">
+<meta property="og:image:secure_url" content="https://nova-plenitude.vercel.app/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nova Plenitude · Padaria & Pizzaria 24h no Jardim Eliana">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nova Plenitude · Padaria & Pizzaria 24h no Jardim Eliana">
+<meta name="twitter:description" content="Pães, bolos, doces, lanches e pizzas. Loja aberta 24 horas, delivery no almoço e à noite.">
+<meta name="twitter:image" content="https://nova-plenitude.vercel.app/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Mulish:wght@400;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
 <style>
 :root{
+  --mq-bg:#f2b51f; --mq-ink:#4a2e1c; --mq-dot:#c41f2a;
   --focus:#c41f2a; --menu-bg:#9f1520; --menu-ink:#fff;
   --red:#c41f2a; --red-d:#9f1520; --gold:#f2b51f; --brown:#4a2e1c; --cream:#f5f1ea;
   --ink:#231a15; --muted:#73665d; --white:#fff; --dark:#1e1a17;
@@ -128,9 +150,11 @@ footer h4{font:500 16px Oswald;text-transform:uppercase;color:#fff;margin-bottom
   .hero{clip-path:ellipse(160% 100% at 50% 0)}
 }
 @media (max-width:900px){.feature .round{max-width:420px;width:100%;margin:0 auto}.reel{max-width:280px}}
+.marquee .marquee-track span{font-family:Oswald,sans-serif;font-weight:600;letter-spacing:.04em}
 </style>
 <link rel="stylesheet" href="agendamento.css">
 <link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="motion.css">
 </head>
 <body>
 <div class="demo-flag">Prévia do novo site · em aprovação</div>
@@ -151,12 +175,13 @@ footer h4{font:500 16px Oswald;text-transform:uppercase;color:#fff;margin-bottom
       <h1 data-split="0.12">Nova Plenitude <small>Padaria &amp; Pizzaria</small></h1>
       <div class="hero-img" data-reveal="zoom" style="--d:.35s">
         <div class="plate" data-float><img src="img/bolo-brigadeiro.jpg" alt="Bolo de chocolate com brigadeiros"></div>
-        <div class="badge"><div>24H<small>LOJA ABERTA</small></div></div>
+        <div class="badge" data-bob><div>24H<small>LOJA ABERTA</small></div></div>
       </div>
-      <a class="order-ring" href="#agendar">PEÇA<br>AGORA</a>
+      <a class="order-ring" data-pulse style="--pulse:rgba(242,181,31,.7)" href="#agendar">PEÇA<br>AGORA</a>
     </div>
   </div>
 </header>
+<div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Pães<i></i></span><span>Bolos<i></i></span><span>Doces<i></i></span><span>Lanches<i></i></span><span>Pratos<i></i></span><span>Pizzas<i></i></span><span>Aberto 24 horas<i></i></span><span>Pães<i></i></span><span>Bolos<i></i></span><span>Doces<i></i></span><span>Lanches<i></i></span><span>Pratos<i></i></span><span>Pizzas<i></i></span><span>Aberto 24 horas<i></i></span><span>Pães<i></i></span><span>Bolos<i></i></span><span>Doces<i></i></span><span>Lanches<i></i></span><span>Pratos<i></i></span><span>Pizzas<i></i></span><span>Aberto 24 horas<i></i></span><span>Pães<i></i></span><span>Bolos<i></i></span><span>Doces<i></i></span><span>Lanches<i></i></span><span>Pratos<i></i></span><span>Pizzas<i></i></span><span>Aberto 24 horas<i></i></span></div></div>
 
 <section class="center" id="padaria" tabindex="-1" style="padding-top:110px">
   <div class="wrap">
@@ -175,7 +200,7 @@ footer h4{font:500 16px Oswald;text-transform:uppercase;color:#fff;margin-bottom
 
 <section style="padding-top:20px">
   <div class="wrap feature">
-    <div class="round" data-reveal="left"><img src="img/doces.jpg" alt="Doces de chocolate"></div>
+    <div class="round" data-reveal="left"><img data-px="0.08" src="img/doces.jpg" alt="Doces de chocolate"></div>
     <div data-reveal="right">
       <div class="kicker">padaria de bairro, 24 horas</div>
       <h2 class="h2">Confeitaria, lanches e pizza no mesmo lugar.</h2>
@@ -194,10 +219,10 @@ footer h4{font:500 16px Oswald;text-transform:uppercase;color:#fff;margin-bottom
   <div class="wrap">
     <div class="pop-head" data-reveal><span class="kicker">os queridinhos</span><h2 class="h2">Da vitrine</h2></div>
     <div class="pop-grid" data-stagger="0.1">
-      <div class="pop"><div class="ph"><img src="img/bolo-chocolate.jpg" alt="Bolo de chocolate com morangos" style="object-position:center 55%"></div><h3>Bolo de chocolate</h3></div>
-      <div class="pop"><div class="ph"><img src="img/folhados.jpg" alt="Folhados com chocolate"></div><h3>Folhados</h3></div>
-      <div class="pop"><div class="ph"><img src="img/vitrine.jpg" alt="Vitrine de doces" style="object-position:center 60%"></div><h3>Tortas e doces</h3></div>
-      <div class="pop"><div class="ph"><img src="img/bolo-brigadeiro.jpg" alt="Bolo com brigadeiros"></div><h3>Bolo brigadeiro</h3></div>
+      <div class="pop" data-tilt><div class="ph"><img src="img/bolo-chocolate.jpg" alt="Bolo de chocolate com morangos" style="object-position:center 55%"></div><h3>Bolo de chocolate</h3></div>
+      <div class="pop" data-tilt><div class="ph"><img src="img/folhados.jpg" alt="Folhados com chocolate"></div><h3>Folhados</h3></div>
+      <div class="pop" data-tilt><div class="ph"><img src="img/vitrine.jpg" alt="Vitrine de doces" style="object-position:center 60%"></div><h3>Tortas e doces</h3></div>
+      <div class="pop" data-tilt><div class="ph"><img src="img/bolo-brigadeiro.jpg" alt="Bolo com brigadeiros"></div><h3>Bolo brigadeiro</h3></div>
     </div>
     <div style="height:110px"></div>
     <div class="ghost">Plenitude</div>
@@ -238,8 +263,8 @@ footer h4{font:500 16px Oswald;text-transform:uppercase;color:#fff;margin-bottom
 <section id="agendar" style="padding-top:0"><div class="wrap"><div class="ag" data-reveal style="--ag-accent:#c41f2a;--ag-ink:#231a15;--ag-radius:8px;--ag-bg:#f5f1ea;--ag-field:#fff"><div class="kicker">pedido ou encomenda</div><h2 class="h2">Faça seu pedido</h2><p class="ag-sub" style="margin-top:8px">Delivery, retirada ou encomenda de bolo. A mensagem chega pronta no nosso WhatsApp.</p><form class="ag-grid" data-whats="551155283313" data-titulo="Pedido Nova Plenitude" data-empresa="Padaria Nova Plenitude" data-logo="img/logo.jpg" data-demo="true" novalidate><div><label for="nome">Nome</label><input id="nome" name="nome" type="text" data-label="Nome" required></div><div><label for="tel">Telefone</label><input id="tel" name="tel" type="tel" data-label="Telefone" required placeholder="(11) 9...."></div><fieldset class="ag-full"><legend>Tipo de pedido</legend><div class="ag-opts"><label><input type="radio" name="tipo" value="Delivery" data-label="Tipo de pedido" required><span>Delivery</span></label><label><input type="radio" name="tipo" value="Retirada na loja" data-label="Tipo de pedido"><span>Retirada na loja</span></label><label><input type="radio" name="tipo" value="Encomenda" data-label="Tipo de pedido"><span>Encomenda</span></label></div></fieldset><div class="ag-full"><label for="pedido">Pedido</label><textarea id="pedido" name="pedido" data-label="Pedido" required placeholder="Ex.: 1 hambúrguer com fritas e 1 fatia de bolo de chocolate"></textarea></div><div class="ag-full ag-grid" data-show-if="tipo=Delivery" hidden><div class="ag-full"><label for="end">Endereço de entrega</label><input id="end" name="end" type="text" data-label="Endereço de entrega" data-req placeholder="Rua, número, bairro e referência"></div></div><div class="ag-full ag-grid" data-show-if="tipo=Encomenda" hidden><div><label for="data">Data da retirada</label><input id="data" name="data" type="date" data-label="Data da retirada" data-req></div><div><label for="tamanho">Tamanho / quantidade de pessoas</label><input id="tamanho" name="tamanho" type="text" data-label="Tamanho / quantidade de pessoas" placeholder="Ex.: 2 kg, 20 pessoas"></div></div><fieldset class="ag-full"><legend>Forma de pagamento</legend><div class="ag-opts"><label><input type="radio" name="pag" value="Pix" data-label="Forma de pagamento" required><span>Pix</span></label><label><input type="radio" name="pag" value="Cartão na entrega" data-label="Forma de pagamento"><span>Cartão na entrega</span></label><label><input type="radio" name="pag" value="Dinheiro" data-label="Forma de pagamento"><span>Dinheiro</span></label></div></fieldset><div class="ag-full ag-grid" data-show-if="pag=Dinheiro" hidden><div><label for="troco">Troco para</label><input id="troco" name="troco" type="text" data-label="Troco para" placeholder="Ex.: R$ 50"></div></div><div><label for="hora">Horário desejado</label><input id="hora" name="hora" type="time" data-label="Horário desejado"></div><div><label for="obs">Observações</label><input id="obs" name="obs" type="text" data-label="Observações"></div><div class="ag-send ag-full"><button class="ag-btn" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.5 12.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg>Enviar pedido no WhatsApp</button><span class="ag-hint">Abre o WhatsApp com a mensagem pronta.</span></div></form></div></div></section>
 <section style="padding-top:0">
   <div class="wrap promo" data-stagger="0.12">
-    <a href="#cardapio"><img src="img/bolo-chocolate.jpg" alt="" style="object-position:center 55%"><div><small>encomendas</small><h3>Bolos para festas</h3></div></a>
-    <a href="#delivery"><img src="img/hamburguer.jpg" alt="" style="object-position:center 45%"><div><small>à noite</small><h3>Lanches e pizzas</h3></div></a>
+    <a href="#cardapio"><img data-px="0.08" src="img/bolo-chocolate.jpg" alt="" style="object-position:center 55%"><div><small>encomendas</small><h3>Bolos para festas</h3></div></a>
+    <a href="#delivery"><img data-px="0.08" src="img/hamburguer.jpg" alt="" style="object-position:center 45%"><div><small>à noite</small><h3>Lanches e pizzas</h3></div></a>
   </div>
   <div class="wrap">
   </div>
@@ -257,6 +282,7 @@ footer h4{font:500 16px Oswald;text-transform:uppercase;color:#fff;margin-bottom
   </div>
 </footer>
 <script src="site.js"></script>
+<script src="motion.js"></script>
 <script src="agendamento.js"></script>
 </body>
 </html>

@@ -5,10 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Hugo Teodoro Marcenaria</title>
+<meta name="description" content="Cozinhas, armários e nichos sob medida no Grajaú, São Paulo. Agende a medição do seu projeto.">
+<meta name="theme-color" content="#3b414c">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://hugo-teodoro-marcenaria.vercel.app/">
+<meta property="og:title" content="Hugo Teodoro Marcenaria · Móveis sob medida">
+<meta property="og:description" content="Cozinhas, armários e nichos sob medida no Grajaú, São Paulo. Agende a medição do seu projeto.">
+<meta property="og:image" content="https://hugo-teodoro-marcenaria.vercel.app/og.jpg">
+<meta property="og:image:secure_url" content="https://hugo-teodoro-marcenaria.vercel.app/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Hugo Teodoro Marcenaria · Móveis sob medida">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hugo Teodoro Marcenaria · Móveis sob medida">
+<meta name="twitter:description" content="Cozinhas, armários e nichos sob medida no Grajaú, São Paulo. Agende a medição do seu projeto.">
+<meta name="twitter:image" content="https://hugo-teodoro-marcenaria.vercel.app/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
+  --mq-bg:#2c3139; --mq-ink:#fff; --mq-dot:#c9a45c;
   --focus:#8d6a26; --menu-bg:#2c3139; --menu-ink:#fff;
   --slate:#3b414c; --slate-d:#2c3139; --gold:#c9a45c; --gold-d:#b08a43;
   --ink:#24282f; --muted:#6c727c; --line:#e6e7ea; --white:#fff; --bg:#fafafa;
@@ -118,9 +140,11 @@ footer ul{list-style:none;display:grid;gap:6px}
   .hero{min-height:520px;background-position:62% center}
 }
 @media (min-width:600px) and (max-width:900px){.cards{grid-template-columns:repeat(3,1fr)}.cards .card:last-child{display:block}}
+.marquee .marquee-track span{font-family:Poppins,sans-serif;font-weight:500;letter-spacing:.12em;font-size:clamp(15px,1.8vw,20px)}
 </style>
 <link rel="stylesheet" href="agendamento.css">
 <link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="motion.css">
 </head>
 <body>
 <div class="demo-flag">Prévia do novo site · em aprovação</div>
@@ -137,7 +161,7 @@ footer ul{list-style:none;display:grid;gap:6px}
   <button class="menu-btn" type="button" data-menu="header.nav ul" aria-label="Abrir menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 </div></header>
 
-<section class="hero">
+<section class="hero" data-px-bg="0.3">
   <div class="wrap">
     <div class="eyebrow" data-reveal>Marcenaria sob medida</div>
     <h1 data-split="0.1">Móveis planejados feitos para durar.</h1>
@@ -147,11 +171,12 @@ footer ul{list-style:none;display:grid;gap:6px}
   <div class="seal" data-float><div><b>5,0</b>no Google</div></div>
 </section>
 
+<div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Cozinhas planejadas<i></i></span><span>Armários<i></i></span><span>Nichos<i></i></span><span>Painéis<i></i></span><span>Projeto sob medida<i></i></span><span>Madeira de verdade<i></i></span><span>Cozinhas planejadas<i></i></span><span>Armários<i></i></span><span>Nichos<i></i></span><span>Painéis<i></i></span><span>Projeto sob medida<i></i></span><span>Madeira de verdade<i></i></span><span>Cozinhas planejadas<i></i></span><span>Armários<i></i></span><span>Nichos<i></i></span><span>Painéis<i></i></span><span>Projeto sob medida<i></i></span><span>Madeira de verdade<i></i></span><span>Cozinhas planejadas<i></i></span><span>Armários<i></i></span><span>Nichos<i></i></span><span>Painéis<i></i></span><span>Projeto sob medida<i></i></span><span>Madeira de verdade<i></i></span></div></div>
 <section id="sobre" tabindex="-1">
   <div class="wrap">
     <div class="about">
       <div class="pic" data-reveal="left">
-        <img src="img/cozinha-amarela.jpg" alt="Cozinha com armários amarelos e prateleiras de madeira" style="object-position:center 35%">
+        <img data-px="0.08" src="img/cozinha-amarela.jpg" alt="Cozinha com armários amarelos e prateleiras de madeira" style="object-position:center 35%">
         <span class="hot" style="left:30%;top:30%"></span><span class="hot" style="left:62%;top:58%"></span><span class="hot" style="left:80%;top:22%"></span>
       </div>
       <div data-reveal="right">
@@ -182,16 +207,16 @@ footer ul{list-style:none;display:grid;gap:6px}
       <a class="btn" href="https://www.instagram.com/porhugoteodoro/">Ver mais projetos</a>
     </div>
     <div class="cards" data-stagger="0.12">
-      <div class="card"><img src="img/cozinha-clara.jpg" alt="Cozinha clara com armários de madeira"><span>Cozinhas</span></div>
-      <div class="card"><img src="img/armario.jpg" alt="Armário com prateleiras ao lado da janela"><span>Armários</span></div>
-      <div class="card"><img src="img/nicho.jpg" alt="Nicho escuro para xícaras na parede"><span>Nichos</span></div>
+      <div class="card" data-tilt><img data-px="0.06" src="img/cozinha-clara.jpg" alt="Cozinha clara com armários de madeira"><span>Cozinhas</span></div>
+      <div class="card" data-tilt><img data-px="0.06" src="img/armario.jpg" alt="Armário com prateleiras ao lado da janela"><span>Armários</span></div>
+      <div class="card" data-tilt><img data-px="0.06" src="img/nicho.jpg" alt="Nicho escuro para xícaras na parede"><span>Nichos</span></div>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap work">
-    <div class="reel" data-reveal="zoom"><video src="img/reel-1.mp4" autoplay muted loop playsinline aria-label="Vídeo de tábuas de cozinha em madeira"></video></div>
+    <div class="reel" data-reveal="zoom" data-tilt><video src="img/reel-1.mp4" autoplay muted loop playsinline aria-label="Vídeo de tábuas de cozinha em madeira"></video></div>
     <div data-reveal="right">
       <div class="eyebrow">Do ateliê</div>
       <h2>Peças pequenas, o mesmo cuidado.</h2>
@@ -225,6 +250,7 @@ footer ul{list-style:none;display:grid;gap:6px}
   <div class="wrap foot-bottom">Prévia do site.</div>
 </footer>
 <script src="site.js"></script>
+<script src="motion.js"></script>
 <script src="agendamento.js"></script>
 </body>
 </html>
