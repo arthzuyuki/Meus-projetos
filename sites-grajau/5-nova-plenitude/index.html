@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Nova Plenitude · demo interna</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Mulish:wght@400;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --focus:#c41f2a; --menu-bg:#9f1520; --menu-ink:#fff;
+  --red:#c41f2a; --red-d:#9f1520; --gold:#f2b51f; --brown:#4a2e1c; --cream:#f5f1ea;
+  --ink:#231a15; --muted:#73665d; --white:#fff; --dark:#1e1a17;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+body{font-family:Mulish,system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.55}
+h1,h2,h3,.cond{font-family:Oswald,sans-serif;text-transform:uppercase;letter-spacing:.01em}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+.demo-flag{position:sticky;top:0;z-index:50;background:#111;color:#ffd54a;font:700 12px/1.4 Mulish,sans-serif;text-align:center;padding:7px 16px}
+.wrap{width:min(1100px,100% - 32px);margin-inline:auto}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;font:600 14px Oswald,sans-serif;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;background:var(--dark);color:#fff;border-radius:4px;transition:background .15s}
+.btn:hover{background:var(--red)}
+.btn-red{background:var(--red)}
+.btn-red:hover{background:var(--red-d)}
+.kicker{font-family:Caveat,cursive;color:var(--red);font-size:24px;display:flex;align-items:center;gap:10px}
+.kicker::before{content:"";width:30px;height:2px;background:var(--red)}
+
+/* hero vermelho com curva */
+.hero{position:relative;background:radial-gradient(ellipse at 50% 30%,#d8323c,var(--red) 55%,#a0151f);color:#fff;padding-bottom:120px;
+  clip-path:ellipse(120% 100% at 50% 0)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px;font:500 13px Oswald;text-transform:uppercase;letter-spacing:.08em}
+.nav ul{display:flex;gap:26px;list-style:none;align-items:center}
+.nav ul a{text-decoration:none}
+.nav .logo{background:#fff;border-radius:50%;width:66px;height:66px;display:grid;place-items:center;overflow:hidden}
+.nav .logo img{width:62px}
+.nav .pill{border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:7px 14px;text-decoration:none}
+.hero-c{text-align:center;padding-top:26px;position:relative}
+.hero .script{font-family:Caveat,cursive;font-size:clamp(28px,4vw,44px);color:var(--gold);text-decoration:line-through;text-decoration-thickness:2px}
+.hero h1{font-size:clamp(64px,13vw,150px);line-height:.9;font-weight:700;letter-spacing:.01em}
+.hero h1 small{display:block;font-size:.34em;letter-spacing:.2em;font-weight:500;margin-top:10px}
+.hero-img{width:min(520px,82%);margin:-10px auto 0;position:relative}
+.hero-img .plate{aspect-ratio:1;border-radius:50%;overflow:hidden;border:10px solid rgba(255,255,255,.18);box-shadow:0 40px 70px rgba(0,0,0,.35)}
+.hero-img img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;right:-4%;top:12%;width:110px;height:110px;border-radius:50%;background:var(--gold);color:var(--brown);display:grid;place-items:center;text-align:center;font:700 22px/1 Oswald;transform:rotate(12deg);box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.badge small{display:block;font-size:12px;letter-spacing:.1em}
+.order-ring{position:absolute;left:50%;bottom:-48px;transform:translateX(-50%);width:104px;height:104px;border-radius:50%;background:#fff;border:6px solid var(--gold);display:grid;place-items:center;color:var(--ink);font:600 15px/1.1 Oswald;text-align:center;text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+
+section{padding:90px 0}
+.center{text-align:center}
+.h2{font-size:clamp(32px,4.2vw,48px);font-weight:600;line-height:1.05}
+.cats{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;margin-top:40px}
+.cat{text-align:center;font:500 14px Oswald;text-transform:uppercase;letter-spacing:.06em}
+.cat i{display:grid;place-items:center;width:72px;height:72px;margin:0 auto 10px;border-radius:50%;border:2px solid #f0d4d6;background:#fff8f8;font-style:normal;font-size:30px;transition:transform .2s,border-color .2s}
+.cat:hover i{transform:translateY(-3px);border-color:var(--red)}
+
+.cat i svg{width:32px;height:32px;stroke:var(--red);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.perk i svg{width:24px;height:24px;stroke:var(--red);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pop .ph img,.item img{transition:transform .5s}
+.pop:hover .ph img{transform:scale(1.08) rotate(3deg)}
+@media (max-width:520px){.nav>.pill:last-of-type{display:none}}
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative}
+.feature .ghost{position:absolute;left:-40px;top:-40px;font:700 clamp(80px,14vw,170px)/1 Oswald;color:var(--gold);opacity:.9;z-index:-1;text-transform:uppercase;white-space:nowrap}
+.feature .round{aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.2);border:10px solid #fff;position:relative}
+.feature .round img{width:100%;height:100%;object-fit:cover}
+.feature p{color:var(--muted);margin:14px 0 22px}
+.perks{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+.perk{display:flex;gap:10px;align-items:flex-start;font-size:14px}
+.perk b{display:block;font:600 14px Oswald;text-transform:uppercase}
+.perk span{color:var(--muted);font-size:13px}
+.perk i{font-style:normal;font-size:22px}
+
+.popular{background:var(--cream);position:relative;overflow:hidden}
+.popular .ghost{position:absolute;left:50%;bottom:-20px;transform:translateX(-50%);font:700 clamp(80px,15vw,190px)/1 Oswald;color:#fff;text-transform:uppercase;white-space:nowrap}
+.pop-head{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:40px}
+.pop-head .kicker::before{display:none}
+.pop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+.pop{text-align:center}
+.pop .ph{aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 18px 30px rgba(0,0,0,.15);border:6px solid #fff;margin-bottom:14px}
+.pop .ph img{width:100%;height:100%;object-fit:cover}
+.pop h3{font-size:18px;font-weight:500}
+.stars{display:inline-block;background:var(--gold);color:var(--brown);font-size:11px;padding:2px 8px;margin-bottom:6px;letter-spacing:2px}
+
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:20px 50px;margin-top:10px}
+.item{display:flex;gap:16px;align-items:center;padding:12px 0;border-bottom:1px dashed #e4d9cc}
+.item img{width:62px;height:62px;border-radius:50%;object-fit:cover;flex:0 0 62px}
+.item b{font:500 16px Oswald;text-transform:uppercase;display:block}
+.item span{color:var(--muted);font-size:13px}
+
+.reel-sec{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.reel{width:min(300px,100%);justify-self:center;border-radius:20px;overflow:hidden;border:8px solid var(--dark);box-shadow:0 30px 60px rgba(0,0,0,.25);transform:rotate(-2deg)}
+.reel video{width:100%;aspect-ratio:9/16;object-fit:cover;background:#000}
+.hours{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.hours div{background:var(--cream);border-left:4px solid var(--red);padding:16px 18px}
+.hours b{display:block;font:600 22px Oswald;color:var(--red)}
+.hours span{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+
+.promo{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:0 0 0}
+.promo a{position:relative;border-radius:10px;overflow:hidden;min-height:220px;display:flex;align-items:flex-end;padding:22px;color:#fff;text-decoration:none}
+.promo a::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.75),rgba(0,0,0,.05))}
+.promo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.promo div{position:relative}
+.promo small{font-family:Caveat,cursive;font-size:22px;color:var(--gold)}
+.promo h3{font-size:28px;line-height:1}
+
+footer{background:var(--dark);color:#bfb6ae;padding:80px 0 26px;clip-path:ellipse(140% 100% at 50% 100%);margin-top:90px}
+.big{text-align:center;font:500 clamp(18px,2.4vw,24px) Oswald;text-transform:uppercase;color:#fff;letter-spacing:.04em}
+.big a{color:var(--gold);text-decoration:none}
+.foot{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:40px;font-size:14px}
+footer h4{font:500 16px Oswald;text-transform:uppercase;color:#fff;margin-bottom:8px}
+.foot-bottom{text-align:center;font-size:12px;margin-top:36px;border-top:1px solid #3a332e;padding-top:18px}
+
+.notes{background:#fff8dc;border:1px dashed #c9a600;color:#5b4a00;border-radius:12px;padding:18px 20px;font-size:13px;margin-top:40px}
+.notes b{display:block;margin-bottom:6px}
+.notes ul{padding-left:18px;display:grid;gap:3px}
+
+@media (max-width:900px){
+  .nav ul{display:none}
+  .cats{grid-template-columns:repeat(3,1fr)}
+  .feature,.reel-sec,.menu{grid-template-columns:1fr}
+  .pop-grid{grid-template-columns:1fr 1fr}
+  .perks{grid-template-columns:1fr}
+  .promo{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr}
+  .badge{width:86px;height:86px;font-size:17px;right:-2%}
+  .hero{clip-path:ellipse(160% 100% at 50% 0)}
+}
+@media (max-width:900px){.feature .round{max-width:420px;width:100%;margin:0 auto}.reel{max-width:280px}}
+</style>
+<link rel="stylesheet" href="agendamento.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="demo-flag">Prévia do novo site · em aprovação</div>
+<a class="skip" href="#padaria">Pular para o conteúdo</a>
+
+<header class="hero">
+  <div class="wrap">
+    <nav class="nav">
+      <a class="pill" href="tel:+551155283313">(11) 5528-3313</a>
+      <ul><li><a href="#padaria">Padaria</a></li><li><a href="#cardapio">Cardápio</a></li>
+        <li><a class="logo" href="#"><img src="img/logo.jpg" alt="Logo Nova Plenitude Padaria e Pizzaria"></a></li>
+        <li><a href="#delivery">Delivery</a></li><li><a href="#contato">Contato</a></li></ul>
+      <button class="menu-btn" type="button" data-menu=".nav ul" aria-label="Abrir menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <a class="pill" href="#agendar">Peça agora</a>
+    </nav>
+    <div class="hero-c">
+      <div class="script" data-reveal>fresquinho</div>
+      <h1 data-split="0.12">Nova Plenitude <small>Padaria &amp; Pizzaria</small></h1>
+      <div class="hero-img" data-reveal="zoom" style="--d:.35s">
+        <div class="plate" data-float><img src="img/bolo-brigadeiro.jpg" alt="Bolo de chocolate com brigadeiros"></div>
+        <div class="badge"><div>24H<small>LOJA ABERTA</small></div></div>
+      </div>
+      <a class="order-ring" href="#agendar">PEÇA<br>AGORA</a>
+    </div>
+  </div>
+</header>
+
+<section class="center" id="padaria" tabindex="-1" style="padding-top:110px">
+  <div class="wrap">
+    <div class="kicker" style="justify-content:center">do balcão para a sua mesa</div>
+    <h2 class="h2">Tudo que a sua padaria tem</h2>
+    <div class="cats" data-stagger="0.07">
+      <div class="cat"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 11a4 4 0 0 1 3-7h8a4 4 0 0 1 3 7v8a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1z"/><path d="M9 8v3M15 8v3"/></svg></i>Pães</div>
+      <div class="cat"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21v-9h16v9M4 16c2 1.5 4 1.5 6 0s4-1.5 6 0 4 1.5 4 0M2 21h20M12 12V8"/><path d="M12 8c-1 0-1.5-.7-1.5-1.5C10.5 5 12 3 12 3s1.5 2 1.5 3.5c0 .8-.5 1.5-1.5 1.5z"/></svg></i>Bolos</div>
+      <div class="cat"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 11h14l-2 10H7z"/><path d="M5 11a7 5 0 0 1 14 0M10 11l.5 10M14 11l-.5 10"/></svg></i>Doces</div>
+      <div class="cat"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10a8 6 0 0 1 16 0z"/><path d="M3 14h18M5 18h14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/></svg></i>Lanches</div>
+      <div class="cat"><i><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="13" cy="12" r="7"/><circle cx="13" cy="12" r="3.5"/><path d="M3 3v7a2 2 0 0 0 2 0V3M4 10v11"/></svg></i>Pratos</div>
+      <div class="cat"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22 3 6a14 14 0 0 1 18 0z"/><path d="M5.2 9.6a10 10 0 0 1 13.6 0"/><circle cx="10.5" cy="12" r="1"/><circle cx="13" cy="16" r="1"/><circle cx="14" cy="11.5" r="1"/></svg></i>Pizzas</div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:20px">
+  <div class="wrap feature">
+    <div class="round" data-reveal="left"><img src="img/doces.jpg" alt="Doces de chocolate"></div>
+    <div data-reveal="right">
+      <div class="kicker">padaria de bairro, 24 horas</div>
+      <h2 class="h2">Confeitaria, lanches e pizza no mesmo lugar.</h2>
+      <p>Do café da manhã ao lanche da madrugada. Bolos e doces na vitrine, pratos no almoço e pizza à noite, no Jardim Eliana.</p>
+      <a class="btn btn-red" href="#cardapio">Ver o que tem hoje</a>
+      <div class="perks">
+        <div class="perk"><i><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="17" r="2.5"/><circle cx="18" cy="17" r="2.5"/><path d="M8.5 17h7.5M15 17l-2.5-8H9M13 9h3l2.5 8M3 12h6"/></svg></i><div><b>Delivery</b><span>Almoço e noite</span></div></div>
+        <div class="perk"><i><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></i><div><b>Loja 24h</b><span>Sempre aberta</span></div></div>
+        <div class="perk"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21v-9h16v9M4 16c2 1.5 4 1.5 6 0s4-1.5 6 0 4 1.5 4 0M2 21h20M12 12V8"/><path d="M12 8c-1 0-1.5-.7-1.5-1.5C10.5 5 12 3 12 3s1.5 2 1.5 3.5c0 .8-.5 1.5-1.5 1.5z"/></svg></i><div><b>Vitrine</b><span>Doces do dia</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="popular" id="cardapio">
+  <div class="wrap">
+    <div class="pop-head" data-reveal><span class="kicker">os queridinhos</span><h2 class="h2">Da vitrine</h2></div>
+    <div class="pop-grid" data-stagger="0.1">
+      <div class="pop"><div class="ph"><img src="img/bolo-chocolate.jpg" alt="Bolo de chocolate com morangos" style="object-position:center 55%"></div><h3>Bolo de chocolate</h3></div>
+      <div class="pop"><div class="ph"><img src="img/folhados.jpg" alt="Folhados com chocolate"></div><h3>Folhados</h3></div>
+      <div class="pop"><div class="ph"><img src="img/vitrine.jpg" alt="Vitrine de doces" style="object-position:center 60%"></div><h3>Tortas e doces</h3></div>
+      <div class="pop"><div class="ph"><img src="img/bolo-brigadeiro.jpg" alt="Bolo com brigadeiros"></div><h3>Bolo brigadeiro</h3></div>
+    </div>
+    <div style="height:110px"></div>
+    <div class="ghost">Plenitude</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="pop-head" data-reveal><span class="kicker">almoço e lanches</span><h2 class="h2">Cozinha</h2></div>
+    <div class="menu" data-stagger="0.08">
+      <div class="item"><img src="img/hamburguer.jpg" alt="Hambúrguer com fritas"><div><b>Hambúrguer com fritas</b><span>Lanche completo no prato</span></div></div>
+      <div class="item"><img src="img/batatas.jpg" alt="Prato com batatas fritas"><div><b>Porção de fritas</b><span>Para acompanhar</span></div></div>
+      <div class="item"><img src="img/refeicao.jpg" alt="Prato com batatas e cobertura"><div><b>Pratos da casa</b><span>Opções do dia</span></div></div>
+      <div class="item"><img src="img/doces.jpg" alt="Doces de chocolate"><div><b>Sobremesas</b><span>Direto da confeitaria</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="delivery" style="padding-top:20px">
+  <div class="wrap reel-sec">
+    <div class="reel" data-reveal="left"><video src="img/vitrine.mp4" poster="img/video-poster.jpg" autoplay muted loop playsinline aria-label="Vídeo da vitrine de bolos e doces"></video></div>
+    <div data-reveal="right">
+      <div class="kicker">peça sem sair de casa</div>
+      <h2 class="h2">Delivery em dois turnos</h2>
+      <p style="color:var(--muted);margin-top:12px">A loja funciona 24 horas. Para entrega, peça no almoço ou à noite.</p>
+      <div class="hours">
+        <div><span>Almoço</span><b>11h às 16h</b></div>
+        <div><span>Noite</span><b>18h à 1h</b></div>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+        <a class="btn btn-red" href="tel:+551155283313">Ligar (11) 5528-3313</a>
+        <a class="btn" href="https://www.instagram.com/padarianovaplenitude/">Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="agendar" style="padding-top:0"><div class="wrap"><div class="ag" data-reveal style="--ag-accent:#c41f2a;--ag-ink:#231a15;--ag-radius:8px;--ag-bg:#f5f1ea;--ag-field:#fff"><div class="kicker">pedido ou encomenda</div><h2 class="h2">Faça seu pedido</h2><p class="ag-sub" style="margin-top:8px">Delivery, retirada ou encomenda de bolo. A mensagem chega pronta no nosso WhatsApp.</p><form class="ag-grid" data-whats="551155283313" data-titulo="Pedido Nova Plenitude" data-empresa="Padaria Nova Plenitude" data-logo="img/logo.jpg" data-demo="true" novalidate><div><label for="nome">Nome</label><input id="nome" name="nome" type="text" data-label="Nome" required></div><div><label for="tel">Telefone</label><input id="tel" name="tel" type="tel" data-label="Telefone" required placeholder="(11) 9...."></div><fieldset class="ag-full"><legend>Tipo de pedido</legend><div class="ag-opts"><label><input type="radio" name="tipo" value="Delivery" data-label="Tipo de pedido" required><span>Delivery</span></label><label><input type="radio" name="tipo" value="Retirada na loja" data-label="Tipo de pedido"><span>Retirada na loja</span></label><label><input type="radio" name="tipo" value="Encomenda" data-label="Tipo de pedido"><span>Encomenda</span></label></div></fieldset><div class="ag-full"><label for="pedido">Pedido</label><textarea id="pedido" name="pedido" data-label="Pedido" required placeholder="Ex.: 1 hambúrguer com fritas e 1 fatia de bolo de chocolate"></textarea></div><div class="ag-full ag-grid" data-show-if="tipo=Delivery" hidden><div class="ag-full"><label for="end">Endereço de entrega</label><input id="end" name="end" type="text" data-label="Endereço de entrega" data-req placeholder="Rua, número, bairro e referência"></div></div><div class="ag-full ag-grid" data-show-if="tipo=Encomenda" hidden><div><label for="data">Data da retirada</label><input id="data" name="data" type="date" data-label="Data da retirada" data-req></div><div><label for="tamanho">Tamanho / quantidade de pessoas</label><input id="tamanho" name="tamanho" type="text" data-label="Tamanho / quantidade de pessoas" placeholder="Ex.: 2 kg, 20 pessoas"></div></div><fieldset class="ag-full"><legend>Forma de pagamento</legend><div class="ag-opts"><label><input type="radio" name="pag" value="Pix" data-label="Forma de pagamento" required><span>Pix</span></label><label><input type="radio" name="pag" value="Cartão na entrega" data-label="Forma de pagamento"><span>Cartão na entrega</span></label><label><input type="radio" name="pag" value="Dinheiro" data-label="Forma de pagamento"><span>Dinheiro</span></label></div></fieldset><div class="ag-full ag-grid" data-show-if="pag=Dinheiro" hidden><div><label for="troco">Troco para</label><input id="troco" name="troco" type="text" data-label="Troco para" placeholder="Ex.: R$ 50"></div></div><div><label for="hora">Horário desejado</label><input id="hora" name="hora" type="time" data-label="Horário desejado"></div><div><label for="obs">Observações</label><input id="obs" name="obs" type="text" data-label="Observações"></div><div class="ag-send ag-full"><button class="ag-btn" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.5 12.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg>Enviar pedido no WhatsApp</button><span class="ag-hint">Abre o WhatsApp com a mensagem pronta.</span></div></form></div></div></section>
+<section style="padding-top:0">
+  <div class="wrap promo" data-stagger="0.12">
+    <a href="#cardapio"><img src="img/bolo-chocolate.jpg" alt="" style="object-position:center 55%"><div><small>encomendas</small><h3>Bolos para festas</h3></div></a>
+    <a href="#delivery"><img src="img/hamburguer.jpg" alt="" style="object-position:center 45%"><div><small>à noite</small><h3>Lanches e pizzas</h3></div></a>
+  </div>
+  <div class="wrap">
+  </div>
+</section>
+
+<footer id="contato">
+  <div class="wrap">
+    <p class="big">Padaria aberta 24 horas · <a href="tel:+551155283313">(11) 5528-3313</a></p>
+    <div class="foot">
+      <div><h4>Endereço</h4>R. Pedro Escobar, 621<br>Jardim Eliana · São Paulo</div>
+      <div><h4>Horário</h4>Loja: 24 horas<br>Delivery: 11h–16h e 18h–1h</div>
+      <div><h4>Redes</h4>Instagram @padarianovaplenitude</div>
+    </div>
+    <div class="foot-bottom">Prévia do site.</div>
+  </div>
+</footer>
+<script src="site.js"></script>
+<script src="agendamento.js"></script>
+</body>
+</html>

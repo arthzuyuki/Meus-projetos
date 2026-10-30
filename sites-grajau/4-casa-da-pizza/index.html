@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Casa da Pizza Grajaú · demo interna</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --focus:#c62828; --menu-bg:#24232b; --menu-ink:#fff;
+  --night:#24232b; --night-2:#2f2e37; --cream:#efebe4; --gold:#a8925f; --gold-d:#7a6638;
+  --red:#d42a22; --ink:#28262c; --muted:#66616a; --white:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+body{font-family:Montserrat,system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6}
+img{display:block;max-width:100%}
+a{color:inherit}
+.demo-flag{position:sticky;top:0;z-index:50;background:#111;color:#ffd54a;font:600 12px/1.4 Montserrat,sans-serif;text-align:center;padding:7px 16px}
+.wrap{width:min(1000px,100% - 32px);margin-inline:auto}
+.script{font-family:"Great Vibes",cursive;font-weight:400}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:3px;font:600 12px Montserrat;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;background:var(--gold-d);color:#fff;transition:background .15s}
+.btn:hover{background:#66552e}
+
+.hero{position:relative;color:#fff;text-align:center;padding:0 0 170px;
+  background:
+    radial-gradient(ellipse at center,rgba(36,35,43,.55),rgba(36,35,43,.92) 75%),
+    url(img/mista.jpg) center 60%/cover}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0;gap:16px}
+.nav img{width:54px;height:54px;border-radius:8px}
+.nav ul{display:flex;gap:28px;list-style:none;font:600 12px Montserrat;letter-spacing:.14em;text-transform:uppercase}
+.nav ul li::before{content:"•";color:var(--gold);margin-right:28px}
+.nav ul li:first-child::before{display:none}
+.nav ul a{text-decoration:none}
+@media (max-width:860px){.nav .call{display:none}}
+.nav .call{text-align:right;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#cfc9bf}
+.nav .call b{display:block;font-size:16px;color:#fff;letter-spacing:.04em}
+.hero h1{font-size:clamp(64px,10vw,120px);line-height:1;margin-top:70px}
+.hero .tag{font:600 clamp(14px,2vw,20px) Montserrat;letter-spacing:.32em;text-transform:uppercase;margin-top:12px}
+.hero .hours{margin-top:18px;color:#d9d3c9;font-size:14px;letter-spacing:.06em}
+
+.sheet{position:relative;z-index:2;background:#fff;margin-top:-120px;box-shadow:0 30px 60px rgba(0,0,0,.18);padding:40px 48px 48px;text-align:center}
+.sheet h2{font-size:52px;line-height:1;color:var(--ink);margin-bottom:28px}
+.pizzas{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
+.pz .disc{width:170px;height:170px;border-radius:50%;overflow:hidden;margin:0 auto 18px;box-shadow:0 14px 26px rgba(0,0,0,.2)}
+.pz .disc img{width:100%;height:100%;object-fit:cover}
+.pz h3{font:700 13px Montserrat;letter-spacing:.12em;text-transform:uppercase}
+.pz .line{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:12px 0}
+.pz .disc img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.pz:hover .disc img{transform:rotate(25deg) scale(1.06)}
+.pz p{font-size:13px;color:var(--muted)}
+.sheet .more{margin-top:34px}
+
+.band{position:relative;padding:90px 0 70px;text-align:center;color:#fff;background:linear-gradient(rgba(36,35,43,.55),rgba(36,35,43,.75)),url(img/doce.jpg) center/cover}
+.band h2{font-size:clamp(48px,7vw,72px);line-height:1}
+.band p{max-width:520px;margin:10px auto 0;color:#e6e0d6}
+
+.grid2{background:#fff;display:grid;grid-template-columns:1fr 1fr;box-shadow:0 30px 60px rgba(0,0,0,.15);margin-top:-30px;position:relative;z-index:2}
+.tile{display:grid;grid-template-columns:1fr 1fr;min-height:200px}
+.tile .txt{padding:24px;display:flex;flex-direction:column;justify-content:center}
+.tile h3{font:700 13px Montserrat;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.tile p{font-size:13px;color:var(--muted)}
+.tile .ph{overflow:hidden}
+.tile .ph img{width:100%;height:100%;object-fit:cover}
+.tile.rev .ph{order:-1}
+
+.delivery{background:var(--night);color:#fff;padding:70px 0;margin-top:90px}
+.delivery .wrap{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;align-items:center}
+.delivery .box{aspect-ratio:4/3;border-radius:6px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.4);transform:rotate(-3deg);border:8px solid #fff}
+.delivery .box img{width:100%;height:100%;object-fit:cover}
+.delivery h2{font-size:clamp(44px,6vw,60px);line-height:1;margin-bottom:12px}
+.delivery p{color:#cfc9bf;margin-bottom:22px}
+
+.order{padding:80px 0}
+.order .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:stretch}
+.order h3{font:700 14px Montserrat;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.order .info p{color:var(--muted);font-size:14px;margin-bottom:22px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fact{background:#fff;border:1px solid #ddd6ca;padding:14px 16px;border-radius:3px;font-size:14px}
+.fact b{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-d);margin-bottom:2px}
+.ticket{background:var(--night);color:#fff;padding:32px;outline:1px solid var(--gold);outline-offset:-12px;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.ticket .script{font-size:40px;color:var(--gold)}
+.ticket p{color:#cfc9bf;font-size:14px}
+
+footer{background:var(--night-2);color:#bdb7c0;text-align:center;padding:40px 0 24px}
+footer .script{font-size:44px;color:#fff;line-height:1}
+footer .row{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;font-size:14px;margin:18px 0}
+footer small{font-size:12px}
+
+.notes{background:#fff8dc;border:1px dashed #c9a600;color:#5b4a00;border-radius:12px;padding:18px 20px;font-size:13px;margin-top:36px}
+.notes b{display:block;margin-bottom:6px}
+.notes ul{padding-left:18px;display:grid;gap:3px}
+
+@media (max-width:860px){
+  .nav ul{display:none}
+  .sheet{padding:32px 20px}
+  .pizzas{grid-template-columns:1fr;gap:28px}
+  .grid2{grid-template-columns:1fr}
+  .delivery .wrap,.order .wrap{grid-template-columns:1fr}
+  .delivery .box{transform:none}
+}
+@media (max-width:480px){ .facts{grid-template-columns:1fr} .tile{grid-template-columns:1fr} .tile .ph{height:180px;order:-1} }
+@media (min-width:600px) and (max-width:860px){.pizzas{grid-template-columns:repeat(3,1fr);gap:16px}.pz .disc{width:140px;height:140px}.delivery .box{max-width:520px}}
+</style>
+<link rel="stylesheet" href="agendamento.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="demo-flag">Prévia do novo site · em aprovação</div>
+<a class="skip" href="#pizzas">Pular para o conteúdo</a>
+
+<header class="hero">
+  <div class="wrap">
+    <nav class="nav">
+      <img src="img/logo.jpg" alt="Logo Casa da Pizza">
+      <ul><li><a href="#pizzas">Pizzas</a></li><li><a href="#doces">Doces</a></li><li><a href="#agendar">Pedido</a></li></ul>
+      <button class="menu-btn" type="button" data-menu=".nav ul" aria-label="Abrir menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <div class="call">Peça pelo cardápio<b>on-line</b></div>
+    </nav>
+    <h1 class="script" data-split="0.1">Casa da Pizza</h1>
+    <div class="tag" data-reveal style="--d:.35s">Pizzaria no Grajaú</div>
+    <div class="hours" data-reveal style="--d:.5s">Quarta a domingo · 18h30 às 23h30</div>
+  </div>
+</header>
+
+<div class="wrap" id="pizzas" tabindex="-1">
+  <div class="sheet" data-reveal style="--d:.3s">
+    <h2 class="script">Pizzas</h2>
+    <div class="pizzas" data-stagger="0.12">
+      <div class="pz"><div class="disc"><img src="img/mista.jpg" alt="Pizza meio a meio" style="object-position:center 40%"></div><h3>Meio a meio</h3><div class="line"></div><p>Escolha dois sabores na mesma pizza.</p></div>
+      <div class="pz"><div class="disc"><img src="img/queijo.jpg" alt="Pizza de queijo"></div><h3>Queijos</h3><div class="line"></div><p>Muito queijo, borda dourada.</p></div>
+      <div class="pz"><div class="disc"><img src="img/verde.jpg" alt="Pizza com cobertura verde"></div><h3>Clássicas</h3><div class="line"></div><p>Os sabores de sempre da casa.</p></div>
+    </div>
+    <div class="more"><a class="btn" href="https://www.ecta.com.br/CasaDaPizzaGrajau">Ver cardápio completo</a></div>
+  </div>
+</div>
+
+<section class="band" id="doces" style="margin-top:80px">
+  <h2 class="script" data-reveal>Doces</h2>
+  <p>Para fechar a noite: pizzas doces com chocolate e cobertura generosa.</p>
+</section>
+
+<div class="wrap">
+  <div class="grid2" data-stagger="0.12">
+    <div class="tile"><div class="txt"><h3>Pizza doce</h3><p>Chocolate ao leite e chocolate branco.</p></div><div class="ph"><img src="img/doce.jpg" alt="Pizza doce com chocolate"></div></div>
+    <div class="tile rev"><div class="txt"><h3>Para dividir</h3><p>Monte meio a meio, salgada e doce.</p></div><div class="ph"><img src="img/mista.jpg" alt="Pizza meio a meio" style="object-position:center 30%"></div></div>
+  </div>
+</div>
+
+<section class="delivery">
+  <div class="wrap">
+    <div class="box" data-reveal="left"><img src="img/queijo.jpg" alt="Pizza pronta para entrega"></div>
+    <div data-reveal="right">
+      <h2 class="script">Entrega e retirada</h2>
+      <p>Faça o pedido pelo cardápio on-line e receba em casa, ou retire no balcão da R. José Antunes Cerdeira, 117.</p>
+      <a class="btn" href="https://www.ecta.com.br/CasaDaPizzaGrajau">Fazer pedido</a>
+    </div>
+  </div>
+</section>
+
+<section id="agendar" style="padding:80px 0 0"><div class="wrap"><div class="ag" data-reveal style="--ag-accent:#7a6638;--ag-ink:#28262c;--ag-radius:4px"><h2 class="script" style="font-size:52px;line-height:1;text-align:center">Peça pelo WhatsApp</h2><p class="ag-sub" style="text-align:center">Prefere falar direto? Monte o pedido aqui e ele chega pronto pra gente.</p><form class="ag-grid" data-whats="5511970522996" data-titulo="Pedido Casa da Pizza" data-empresa="Casa da Pizza Grajaú" data-logo="img/logo.jpg" data-demo="true" novalidate><div><label for="nome">Nome</label><input id="nome" name="nome" type="text" data-label="Nome" required></div><div><label for="tel">Telefone</label><input id="tel" name="tel" type="tel" data-label="Telefone" required placeholder="(11) 9...."></div><div class="ag-full"><label for="pedido">Pedido</label><textarea id="pedido" name="pedido" data-label="Pedido" required placeholder="Ex.: 1 pizza grande meia mussarela, meia doce de chocolate"></textarea></div><fieldset class="ag-full"><legend>Como quer receber</legend><div class="ag-opts"><label><input type="radio" name="receber" value="Entrega" data-label="Como quer receber" required><span>Entrega</span></label><label><input type="radio" name="receber" value="Retirada no balcão" data-label="Como quer receber"><span>Retirada no balcão</span></label></div></fieldset><div class="ag-full ag-grid" data-show-if="receber=Entrega" hidden><div class="ag-full"><label for="end">Endereço de entrega</label><input id="end" name="end" type="text" data-label="Endereço de entrega" data-req placeholder="Rua, número, bairro e referência"></div></div><fieldset class="ag-full"><legend>Forma de pagamento</legend><div class="ag-opts"><label><input type="radio" name="pag" value="Pix" data-label="Forma de pagamento" required><span>Pix</span></label><label><input type="radio" name="pag" value="Cartão na entrega" data-label="Forma de pagamento"><span>Cartão na entrega</span></label><label><input type="radio" name="pag" value="Dinheiro" data-label="Forma de pagamento"><span>Dinheiro</span></label></div></fieldset><div class="ag-full ag-grid" data-show-if="pag=Dinheiro" hidden><div><label for="troco">Troco para</label><input id="troco" name="troco" type="text" data-label="Troco para" placeholder="Ex.: R$ 100"></div></div><div><label for="hora">Horário desejado</label><input id="hora" name="hora" type="time" data-label="Horário desejado"></div><div><label for="obs">Observações</label><input id="obs" name="obs" type="text" data-label="Observações" placeholder="Ex.: sem cebola, borda recheada"></div><div class="ag-send ag-full"><button class="ag-btn" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.5 12.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg>Enviar pedido no WhatsApp</button><span class="ag-hint">Abre o WhatsApp com a mensagem pronta.</span></div></form></div></div></section>
+<section class="order" id="pedido">
+  <div class="wrap" data-stagger="0.12">
+    <div class="info">
+      <h3>Endereço e horário</h3>
+      <p>Estamos no Parque América. Abrimos de quarta a domingo, à noite.</p>
+      <div class="facts">
+        <div class="fact"><b>Endereço</b>R. José Antunes Cerdeira, 117 · Parque América</div>
+        <div class="fact"><b>Horário</b>Qua a dom · 18h30–23h30</div>
+        <div class="fact"><b>Pedidos</b>Cardápio on-line</div>
+        <div class="fact"><b>Instagram</b>@casadapizzagrajausp</div>
+      </div>
+    </div>
+    <div class="ticket">
+      <div class="script">Seu pedido</div>
+      <p>Escolha os sabores, informe o endereço e acompanhe tudo pelo cardápio digital.</p>
+      <div><a class="btn" href="https://www.ecta.com.br/CasaDaPizzaGrajau">Abrir cardápio</a></div>
+    </div>
+  </div>
+  <div class="wrap" style="display:block">
+  </div>
+</section>
+
+<footer>
+  <div class="script">Casa da Pizza</div>
+  <div class="row"><span>R. José Antunes Cerdeira, 117 · Grajaú, São Paulo</span><span>@casadapizzagrajausp</span></div>
+  <small>Prévia do site.</small>
+</footer>
+<script src="site.js"></script>
+<script src="agendamento.js"></script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>E tudo se fez novo · demo interna</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --focus:#1565c8; --menu-bg:#0a2a52; --menu-ink:#fff;
+  --navy:#0a2a52; --blue:#1565c8; --sky:#e8f1fb; --red:#cf2a36; --red-d:#b01f2b;
+  --ink:#0f1d2e; --muted:#5a6b80; --line:#dbe5f0; --white:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;color:var(--ink);background:#f4f8fc;line-height:1.55}
+img{display:block;max-width:100%}
+a{color:inherit}
+.demo-flag{position:sticky;top:0;z-index:50;background:#111;color:#ffd54a;font:600 12px/1.4 "Plus Jakarta Sans",sans-serif;text-align:center;padding:7px 16px;letter-spacing:.02em}
+.wrap{width:min(1120px,100% - 32px);margin-inline:auto}
+
+/* topo */
+.topbar{background:linear-gradient(90deg,var(--navy),#3a3f6e 60%,var(--red));color:#dfe9f7;font-size:13px}
+.topbar .wrap{display:flex;justify-content:space-between;gap:12px;padding:8px 0;flex-wrap:wrap}
+.hero{position:relative;color:#fff;padding:22px 0 150px;overflow:hidden;
+  background:
+   linear-gradient(100deg,rgba(10,42,82,.96) 0%,rgba(21,101,200,.82) 45%,rgba(226,50,63,.78) 100%),
+   url(img/ar.jpg) center/cover no-repeat}
+.hero::after{content:"";position:absolute;left:-5%;right:-5%;bottom:-60px;height:140px;background:#f4f8fc;border-radius:50% 50% 0 0/100% 100% 0 0}
+.nav{background:#fff;color:var(--ink);border-radius:14px;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;box-shadow:0 10px 30px rgba(10,42,82,.25)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;line-height:1.1;text-decoration:none}
+.brand-mark{width:38px;height:38px;border-radius:50%;background:conic-gradient(var(--blue) 0 50%,var(--red) 0);display:grid;place-items:center}
+.brand-mark span svg{width:14px;height:14px;stroke:var(--navy);fill:#ffd54a;stroke-width:1.6;stroke-linejoin:round}
+.brand-mark span{width:24px;height:24px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:13px;color:var(--navy)}
+.brand small{display:block;font-weight:500;font-size:11px;color:var(--muted)}
+.nav ul{display:flex;gap:26px;list-style:none;font-size:14px;font-weight:600}
+.nav ul a{text-decoration:none;color:var(--ink)}
+.nav ul a:hover{color:var(--blue)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:12px 22px;font-weight:700;font-size:15px;text-decoration:none;border:0;cursor:pointer;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 8px 20px rgba(226,50,63,.35)}
+.btn-red:hover{background:var(--red-d)}
+.btn-ghost{border:2px solid var(--red);color:var(--red);padding:8px 16px;font-size:14px}
+.hero-body{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;margin-top:70px;position:relative;z-index:1}
+.eyebrow{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);padding:6px 12px;border-radius:999px;font-size:13px;font-weight:600}
+.hero h1{font-size:clamp(36px,5.4vw,62px);line-height:1.04;font-weight:800;margin:18px 0 16px;letter-spacing:-.02em}
+.hero p{font-size:18px;color:#e3ecf8;max-width:520px;margin-bottom:28px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.rating{display:flex;align-items:center;gap:10px;font-size:14px;color:#e3ecf8}
+.rating b{font-size:22px;color:#fff}
+.stars{color:#ffd54a;letter-spacing:2px}
+.hero-photo{border-radius:20px;overflow:hidden;border:6px solid rgba(255,255,255,.18);box-shadow:0 30px 60px rgba(0,0,0,.35);transform:rotate(2deg)}
+.hero-photo img{aspect-ratio:4/3;object-fit:cover;width:100%}
+
+/* cards sobrepostos */
+.pillars{position:relative;z-index:2;margin-top:-110px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pillar{background:#fff;border-radius:14px;padding:32px 26px;text-align:center;box-shadow:0 18px 40px rgba(10,42,82,.12)}
+.ico{width:64px;height:64px;margin:0 auto 18px;border-radius:50%;border:2px solid var(--navy);display:grid;place-items:center}
+.ico svg{width:30px;height:30px;stroke:var(--navy);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pillar:nth-child(2){background:var(--navy);color:#fff}
+.pillar:nth-child(2) p{color:#c9d8ec}
+.pillar:nth-child(2) .ico{border-color:#fff}
+.pillar:nth-child(2) .ico svg{stroke:#fff}
+.pillar{transition:transform .25s}
+.pillar:hover{transform:translateY(-4px)}
+.pillar h3{font-size:20px;margin-bottom:8px}
+.pillar p{color:var(--muted);font-size:15px;margin-bottom:20px}
+.pillar .btn{padding:9px 18px;font-size:14px}
+
+section{padding:96px 0}
+.title{text-align:center;max-width:640px;margin:0 auto 44px}
+.title h2{font-size:clamp(28px,3.6vw,40px);line-height:1.15;color:var(--navy);letter-spacing:-.01em}
+.title p{color:var(--muted);margin-top:10px}
+
+/* serviços com foto */
+.services{background:linear-gradient(180deg,#f4f8fc,#eaf2fb)}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.svc{border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 10px 26px rgba(10,42,82,.1);display:flex;flex-direction:column}
+.svc .ph{aspect-ratio:4/3;background:var(--navy);overflow:hidden}
+.svc .ph img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.svc:hover .ph img{transform:scale(1.05)}
+.svc .ph.noimg{display:grid;place-items:center;background:linear-gradient(135deg,var(--navy),var(--blue))}
+.svc .ph.noimg svg{width:60px;height:60px;stroke:#fff;fill:none;stroke-width:1.5}
+.svc .cap{background:linear-gradient(90deg,var(--blue),#2f86e6);color:#fff;padding:16px 18px;flex:1}
+.svc .cap h3{font-size:19px;line-height:1.2}
+.svc .cap span{font-size:13px;opacity:.85}
+
+/* antes e depois */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.split .media{position:relative}
+.split .media img{width:100%;max-height:440px;object-fit:cover;border-radius:18px;box-shadow:0 24px 50px rgba(10,42,82,.18)}
+.lines{position:absolute;inset:auto auto -30px -40px;width:180px;opacity:.9}
+.split h2{font-size:clamp(28px,3.4vw,38px);color:var(--navy);line-height:1.15;margin-bottom:16px}
+.split p{color:var(--muted);margin-bottom:14px}
+.checks{list-style:none;margin:20px 0 28px;display:grid;gap:10px}
+.checks li{display:flex;gap:10px;align-items:flex-start;font-weight:600}
+.checks li::before{content:"";flex:0 0 20px;height:20px;border-radius:50%;background:var(--red) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/12px no-repeat;margin-top:2px}
+
+/* galeria */
+.gallery{display:grid;grid-template-columns:1.2fr 1fr 1fr;grid-template-rows:220px 220px;gap:16px}
+.gallery figure{border-radius:12px;overflow:hidden;position:relative;background:#cfdbe8}
+.gallery figure:first-child{grid-row:span 2}
+.gallery img{width:100%;height:100%;object-fit:cover}
+.gallery figcaption{position:absolute;left:10px;bottom:10px;background:rgba(10,42,82,.85);color:#fff;font-size:12px;padding:4px 10px;border-radius:999px}
+
+/* contato */
+.contact{background:linear-gradient(110deg,var(--navy),var(--blue));color:#fff;border-radius:22px;padding:56px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.contact h2{font-size:clamp(28px,3.4vw,40px);line-height:1.12;margin-bottom:12px}
+.contact p{color:#dbe7f7}
+.info{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:24px;display:grid;gap:16px}
+.info div{display:flex;gap:12px;align-items:flex-start;font-size:15px}
+.info svg{flex:0 0 22px;width:22px;height:22px;stroke:#ffd54a;fill:none;stroke-width:1.8}
+.info b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:#a9c4e8}
+
+footer{background:linear-gradient(90deg,#1872d6,var(--navy));color:#cfe0f5;padding:48px 0 26px;margin-top:96px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+footer h4{color:#fff;margin-bottom:12px;font-size:15px}
+footer ul{list-style:none;display:grid;gap:6px;font-size:14px}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.18);margin-top:32px;padding-top:18px;font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+.notes{background:#fff8dc;border:1px dashed #c9a600;color:#5b4a00;border-radius:12px;padding:18px 20px;font-size:13px;margin-top:40px}
+.notes b{display:block;margin-bottom:6px}
+.notes ul{padding-left:18px;display:grid;gap:3px}
+
+@media (max-width:900px){
+  .nav ul{display:none}
+  .hero-body,.split,.contact{grid-template-columns:1fr}
+  .hero-photo{transform:none}
+  .pillars{grid-template-columns:1fr;margin-top:-90px}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .gallery{grid-template-columns:1fr 1fr;grid-template-rows:200px 160px 160px}
+  .gallery figure:first-child{grid-column:span 2;grid-row:auto}
+  .contact{padding:32px 22px}
+  .foot{grid-template-columns:1fr}
+  section{padding:72px 0}
+}
+@media (max-width:520px){
+  .nav{padding:10px 12px}
+  .svc-grid{grid-template-columns:1fr}
+  .nav .btn-ghost{display:none}
+  .hero{padding-bottom:130px}
+}
+@media (min-width:640px) and (max-width:900px){.pillars{grid-template-columns:repeat(3,1fr);gap:14px}.pillar{padding:24px 14px}.hero-photo{max-width:560px}}
+</style>
+<link rel="stylesheet" href="agendamento.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="demo-flag">Prévia do novo site · em aprovação</div>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<div class="topbar"><div class="wrap"><span>Elétrica · Climatização · CFTV · Grajaú, São Paulo</span><span>(11) 99760-9573</span></div></div>
+
+<header class="hero">
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="#"><span class="brand-mark"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span></span><span>E tudo se fez novo<small>elétrica, climatização e CFTV</small></span></a>
+      <ul><li><a href="#servicos">Serviços</a></li><li><a href="#trabalhos">Trabalhos</a></li><li><a href="#agendar">Agendar</a></li><li><a href="#contato">Contato</a></li></ul>
+      <button class="menu-btn" type="button" data-menu=".nav ul" aria-label="Abrir menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <a class="btn btn-ghost" href="tel:+5511997609573">Ligar agora</a>
+    </nav>
+    <div class="hero-body">
+      <div>
+        <span class="eyebrow" data-reveal>Atendimento no Grajaú e região</span>
+        <h1 data-split="0.1">Sua casa funcionando como nova.</h1>
+        <p data-reveal style="--d:.35s">Instalação e manutenção elétrica, ar-condicionado e câmeras de segurança, com acabamento caprichado do quadro à tomada.</p>
+        <div class="hero-actions" data-reveal style="--d:.5s">
+          <a class="btn btn-red" href="#agendar">Agendar visita</a>
+          <div class="rating"><b>5,0</b><span><span class="stars">★★★★★</span><br>250 avaliações no Google</span></div>
+        </div>
+      </div>
+      <div class="hero-photo" data-reveal="zoom" style="--d:.2s"><img src="img/ar.jpg" alt="Manutenção de ar-condicionado com manômetros conectados"></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap pillars" id="conteudo" tabindex="-1" data-stagger="0.12">
+  <article class="pillar">
+    <div class="ico"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div>
+    <h3>Elétrica</h3>
+    <p>Quadros de distribuição, tomadas, interruptores, chuveiros e reparos.</p>
+    <a class="btn btn-red" href="#contato">Orçamento</a>
+  </article>
+  <article class="pillar">
+    <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2v20M4.9 6l14.2 12M4.9 18 19.1 6M2 12h20"/></svg></div>
+    <h3>Climatização</h3>
+    <p>Instalação e manutenção de ar-condicionado para casa e comércio.</p>
+    <a class="btn btn-red" href="#contato">Orçamento</a>
+  </article>
+  <article class="pillar">
+    <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 7h13l3 4-3 4H3z"/><circle cx="9" cy="11" r="2"/><path d="M7 15v5M5 20h4"/></svg></div>
+    <h3>CFTV</h3>
+    <p>Câmeras de segurança instaladas e configuradas para você acompanhar.</p>
+    <a class="btn btn-red" href="#contato">Orçamento</a>
+  </article>
+</div>
+
+<section class="services" id="servicos">
+  <div class="wrap">
+    <div class="title" data-reveal>
+      <h2>Chame quem resolve de primeira</h2>
+      <p>Um só contato para a parte elétrica, o ar-condicionado e a segurança do seu imóvel.</p>
+    </div>
+    <div class="svc-grid" data-stagger="0.1">
+      <article class="svc"><div class="ph"><img src="img/quadro.jpg" alt="Quadro elétrico com disjuntores sendo montado" style="object-position:center 40%"></div><div class="cap"><h3>Quadro elétrico</h3><span>Montagem e organização</span></div></article>
+      <article class="svc"><div class="ph"><img src="img/ar.jpg" alt="Ferramentas de manutenção de ar-condicionado"></div><div class="cap"><h3>Ar-condicionado</h3><span>Instalação e manutenção</span></div></article>
+      <article class="svc"><div class="ph"><img src="img/chuveiro.jpg" alt="Chuveiro elétrico instalado em banheiro"></div><div class="cap"><h3>Chuveiros e tomadas</h3><span>Troca e instalação</span></div></article>
+      <article class="svc"><div class="ph noimg"><svg viewBox="0 0 24 24"><path d="M3 7h13l3 4-3 4H3z"/><circle cx="9" cy="11" r="2"/><path d="M7 15v5M5 20h4"/></svg></div><div class="cap"><h3>Câmeras (CFTV)</h3><span>Instalação e configuração</span></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="trabalhos">
+  <div class="wrap split">
+    <div class="media" data-reveal="left">
+      <img src="img/antes-depois.jpg" alt="Comparação de antes e depois da troca de interruptor e tomada">
+    </div>
+    <div data-reveal="right">
+      <h2>O antes e depois que você vê na parede</h2>
+      <p>Trocar uma tomada amarelada parece detalhe, até você ver o resultado. O mesmo cuidado vale para o quadro elétrico e para a instalação do ar.</p>
+      <ul class="checks">
+        <li>Orçamento antes de começar</li>
+        <li>Acabamento limpo e organizado</li>
+        <li>Atendimento pelo telefone ou na sua casa</li>
+      </ul>
+      <a class="btn btn-red" href="#agendar">Quero agendar</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="title" data-reveal><h2>Trabalhos recentes</h2></div>
+    <div class="gallery" data-stagger="0.08">
+      <figure><img src="img/quadro.jpg" alt="Quadro elétrico em montagem" style="object-position:center 42%"><figcaption>Quadro de distribuição</figcaption></figure>
+      <figure><img src="img/ar.jpg" alt="Manutenção de ar-condicionado"><figcaption>Climatização</figcaption></figure>
+      <figure><img src="img/tomada.jpg" alt="Interruptor e tomada novos"><figcaption>Tomadas</figcaption></figure>
+      <figure><img src="img/chuveiro.jpg" alt="Chuveiro instalado"><figcaption>Chuveiro</figcaption></figure>
+      <figure><img src="img/antes-depois.jpg" alt="Antes e depois de tomada"><figcaption>Antes e depois</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="agendar" style="padding-top:0"><div class="wrap"><div class="ag" data-reveal style="--ag-accent:#1565c8;--ag-ink:#0f1d2e;--ag-radius:16px"><h2 style="font-size:clamp(26px,3.2vw,36px);color:#0a2a52">Agende uma visita</h2><p class="ag-sub">Escolha o serviço, o dia e o período. A mensagem chega pronta no nosso WhatsApp.</p><form class="ag-grid" data-whats="5511997609573" data-titulo="Agendamento de serviço" data-empresa="E tudo se fez novo" data-demo="true" novalidate><div><label for="nome">Nome</label><input id="nome" name="nome" type="text" data-label="Nome" required></div><div><label for="tel">Telefone</label><input id="tel" name="tel" type="tel" data-label="Telefone" required placeholder="(11) 9...."></div><fieldset class="ag-full"><legend>Serviço</legend><div class="ag-opts"><label><input type="radio" name="servico" value="Elétrica" data-label="Serviço" required><span>Elétrica</span></label><label><input type="radio" name="servico" value="Ar-condicionado" data-label="Serviço"><span>Ar-condicionado</span></label><label><input type="radio" name="servico" value="Câmeras (CFTV)" data-label="Serviço"><span>Câmeras (CFTV)</span></label><label><input type="radio" name="servico" value="Outro" data-label="Serviço"><span>Outro</span></label></div></fieldset><div class="ag-full"><label for="desc">O que precisa</label><textarea id="desc" name="desc" data-label="O que precisa" required placeholder="Ex.: trocar 3 tomadas e instalar um chuveiro"></textarea></div><div class="ag-full"><label for="end">Endereço do serviço</label><input id="end" name="end" type="text" data-label="Endereço do serviço" required placeholder="Rua, número e bairro"></div><div><label for="data">Dia preferido</label><input id="data" name="data" type="date" data-label="Dia preferido" required></div><div><label for="periodo">Período</label><select id="periodo" name="periodo" data-label="Período" required><option value="">Escolha</option><option>Manhã</option><option>Tarde</option><option>Noite</option></select></div><fieldset class="ag-full"><legend>Forma de pagamento</legend><div class="ag-opts"><label><input type="radio" name="pag" value="Pix" data-label="Forma de pagamento" required><span>Pix</span></label><label><input type="radio" name="pag" value="Cartão" data-label="Forma de pagamento"><span>Cartão</span></label><label><input type="radio" name="pag" value="Dinheiro" data-label="Forma de pagamento"><span>Dinheiro</span></label><label><input type="radio" name="pag" value="A combinar" data-label="Forma de pagamento"><span>A combinar</span></label></div></fieldset><div class="ag-send ag-full"><button class="ag-btn" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.5 12.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg>Agendar pelo WhatsApp</button><span class="ag-hint">Abre o WhatsApp com a mensagem pronta.</span></div></form></div></div></section>
+<section id="contato" style="padding-top:0">
+  <div class="wrap">
+    <div class="contact" data-reveal>
+      <div>
+        <h2>Fale com a gente e receba seu orçamento</h2>
+        <p>Conte o que precisa: um reparo rápido, a instalação de um ar novo ou câmeras para o seu comércio.</p>
+        <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn btn-red" href="tel:+5511997609573">Ligar (11) 99760-9573</a>
+        </div>
+      </div>
+      <div class="info">
+        <div><svg viewBox="0 0 24 24"><path d="M12 22s7-6.3 7-12a7 7 0 1 0-14 0c0 5.7 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span><b>Endereço</b>Estrada Canal de Cocaia, 1864 · Parque Residencial Cocaia, São Paulo</span></div>
+        <div><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span><b>Telefone</b>(11) 99760-9573</span></div>
+        <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>Horário</b>A confirmar com o cliente</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><h4>E tudo se fez novo</h4><p style="font-size:14px">Elétrica, climatização e CFTV no Grajaú, zona sul de São Paulo.</p></div>
+      <div><h4>Serviços</h4><ul><li>Elétrica residencial</li><li>Ar-condicionado</li><li>Câmeras de segurança</li></ul></div>
+      <div><h4>Contato</h4><ul><li>(11) 99760-9573</li><li>Estrada Canal de Cocaia, 1864</li></ul></div>
+    </div>
+    <div class="foot-bottom"><span>Prévia do site.</span><span>Grajaú · São Paulo</span></div>
+  </div>
+</footer>
+<script src="site.js"></script>
+<script src="agendamento.js"></script>
+</body>
+</html>

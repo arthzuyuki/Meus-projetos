@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Hugo Teodoro Marcenaria · demo interna</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --focus:#8d6a26; --menu-bg:#2c3139; --menu-ink:#fff;
+  --slate:#3b414c; --slate-d:#2c3139; --gold:#c9a45c; --gold-d:#b08a43;
+  --ink:#24282f; --muted:#6c727c; --line:#e6e7ea; --white:#fff; --bg:#fafafa;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+body{font-family:Roboto,system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.6}
+h1,h2,h3,h4,.f-pop{font-family:Poppins,sans-serif}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+.demo-flag{position:sticky;top:0;z-index:50;background:#111;color:#ffd54a;font:600 12px/1.4 Poppins,sans-serif;text-align:center;padding:7px 16px}
+.wrap{width:min(1080px,100% - 32px);margin-inline:auto}
+.eyebrow{font:500 13px Poppins,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--ink)}
+.bar{width:56px;height:4px;background:var(--gold);border-radius:2px;margin:22px 0}
+.btn{display:inline-flex;align-items:center;gap:14px;border-radius:999px;padding:14px 32px;font:600 12px Poppins,sans-serif;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;background:var(--gold);color:var(--slate-d);box-shadow:0 10px 24px rgba(201,164,92,.35);transition:background .15s,transform .15s}
+.btn:hover{background:#d8b878;transform:translateY(-1px)}
+.btn span{border-left:1px solid rgba(44,49,57,.35);padding-left:14px}
+
+.utility{background:var(--slate);color:#d6d9de;font-size:13px}
+.utility .wrap{display:flex;justify-content:space-between;align-items:center;padding:9px 0;gap:12px;flex-wrap:wrap}
+.utility a{text-decoration:none}
+.pill{background:#fff;color:var(--ink);border-radius:999px;padding:4px 14px;font-weight:500}
+header.nav{background:#fff;border-bottom:1px solid var(--line)}
+header.nav .wrap{gap:16px;display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:600 20px Poppins,sans-serif;letter-spacing:.14em}
+.logo i{display:grid;grid-template-columns:repeat(2,7px);gap:3px}
+.logo i b{width:7px;height:7px;background:var(--ink)}
+.logo i b:nth-child(2){background:var(--gold)}
+.logo small{display:block;font:400 10px Poppins;letter-spacing:.3em;color:var(--muted)}
+header.nav ul{display:flex;gap:34px;list-style:none;font:500 13px Poppins;letter-spacing:.06em;text-transform:uppercase}
+header.nav ul a{text-decoration:none}
+header.nav ul a:hover{color:var(--gold)}
+
+.hero{position:relative;min-height:600px;display:flex;align-items:center;color:#fff;
+  background:linear-gradient(90deg,rgba(44,49,57,.92) 0%,rgba(44,49,57,.7) 45%,rgba(44,49,57,.15) 100%),url(img/cozinha-clara.jpg) center 40%/cover}
+.hero h1{font-size:clamp(36px,5.4vw,64px);font-weight:500;line-height:1.1;max-width:640px}
+.hero p{max-width:460px;color:#e5e7ea;font-size:17px}
+.hero .eyebrow{color:#fff}
+.seal{position:absolute;right:6%;bottom:60px;width:128px;height:128px;border-radius:50%;border:2px solid var(--gold);display:grid;place-items:center;text-align:center;font:500 12px/1.3 Poppins;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(44,49,57,.55);backdrop-filter:blur(3px)}
+.seal b{display:block;font-size:26px;color:var(--gold);letter-spacing:0}
+
+section{padding:110px 0}
+.about{display:grid;grid-template-columns:1.25fr 1fr;gap:64px;align-items:center}
+.about .pic{position:relative;border-radius:6px;overflow:hidden;box-shadow:0 30px 60px rgba(44,49,57,.18)}
+.about .pic img{width:100%;aspect-ratio:5/4;object-fit:cover}
+.anim .hot{animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 6px rgba(201,164,92,.35)}50%{box-shadow:0 0 0 12px rgba(201,164,92,.12)}}
+.hot{position:absolute;width:22px;height:22px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 6px rgba(201,164,92,.35)}
+.hot::after{content:"";position:absolute;inset:7px;border-radius:50%;background:#fff}
+.about h2{font-size:clamp(30px,3.6vw,42px);font-weight:600;line-height:1.15}
+.about .lead{font:500 19px/1.45 Poppins;margin-bottom:12px}
+.about p{color:var(--muted)}
+
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:80px}
+.feat{display:flex;gap:18px;align-items:flex-start}
+.feat .ic{flex:0 0 70px;height:70px;border-radius:50%;background:var(--slate);display:grid;place-items:center;box-shadow:0 12px 24px rgba(44,49,57,.25)}
+.feat svg{width:30px;height:30px;stroke:#fff;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.feat h3{font-size:18px;font-weight:500;margin-bottom:4px}
+.feat p{color:var(--muted);font-size:15px}
+
+.what{background:var(--slate);color:#fff;position:relative;overflow:hidden}
+.what::before{content:"";position:absolute;inset:0;opacity:.07;background:
+  repeating-linear-gradient(90deg,#fff 0 1px,transparent 1px 90px),repeating-linear-gradient(0deg,#fff 0 1px,transparent 1px 90px)}
+.what .wrap{display:grid;grid-template-columns:.9fr 2fr;gap:44px;align-items:center;position:relative}
+.what .eyebrow{color:#fff}
+.what h2{font-size:clamp(32px,3.8vw,44px);font-weight:500;line-height:1.12}
+.what .lead{font:400 20px Poppins;margin-bottom:10px}
+.what p{color:#c9ccd2;font-size:15px;margin-bottom:28px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:3/4;background:#222}
+.card img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.card:hover img{transform:scale(1.05)}
+.card span{position:absolute;left:0;right:0;bottom:0;padding:16px 20px;background:rgba(44,49,57,.88);font:400 17px Poppins}
+
+.work{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.reel{justify-self:center;width:min(330px,100%);border-radius:22px;overflow:hidden;box-shadow:0 30px 60px rgba(44,49,57,.25);border:8px solid var(--slate)}
+.reel video{width:100%;aspect-ratio:9/16;object-fit:cover;background:#000}
+.work h2{font-size:clamp(28px,3.4vw,40px);font-weight:500;line-height:1.15}
+.work p{color:var(--muted);margin-bottom:12px}
+
+.cta{background:var(--bg);text-align:center}
+.cta h2{font-size:clamp(28px,3.4vw,42px);font-weight:500;margin-bottom:10px}
+.cta p{color:var(--muted);max-width:560px;margin:0 auto 30px}
+.cta .row{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.btn-out{background:transparent;color:var(--slate);border:2px solid var(--slate);box-shadow:none}
+.btn-out:hover{background:var(--slate);color:#fff}
+
+footer{background:var(--slate-d);color:#aeb3bb;padding:56px 0 26px;font-size:14px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+footer h4{color:#fff;font-weight:500;margin-bottom:10px}
+footer ul{list-style:none;display:grid;gap:6px}
+.foot-bottom{border-top:1px solid #444a54;margin-top:36px;padding-top:18px;font-size:12px}
+
+.notes{background:#fff8dc;border:1px dashed #c9a600;color:#5b4a00;border-radius:12px;padding:18px 20px;font-size:13px;margin:48px auto 0;text-align:left;max-width:860px}
+.notes b{display:block;margin-bottom:6px}
+.notes ul{padding-left:18px;display:grid;gap:3px}
+
+@media (max-width:900px){
+  header.nav ul{display:none}
+  .about,.what .wrap,.work{grid-template-columns:1fr}
+  .feats{grid-template-columns:1fr;margin-top:56px}
+  .cards{grid-template-columns:1fr 1fr}
+  .cards .card:last-child{display:none}
+  .foot{grid-template-columns:1fr}
+  .seal{display:none}
+  section{padding:76px 0}
+  .hero{min-height:520px;background-position:62% center}
+}
+@media (min-width:600px) and (max-width:900px){.cards{grid-template-columns:repeat(3,1fr)}.cards .card:last-child{display:block}}
+</style>
+<link rel="stylesheet" href="agendamento.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="demo-flag">Prévia do novo site · em aprovação</div>
+<a class="skip" href="#sobre">Pular para o conteúdo</a>
+
+<div class="utility"><div class="wrap">
+  <span>Grajaú · São Paulo</span>
+  <span>Orçamentos: <a href="tel:+5511991598549">(11) 99159-8549</a> &nbsp; <a class="pill" href="https://www.instagram.com/porhugoteodoro/">Instagram</a></span>
+</div></div>
+
+<header class="nav"><div class="wrap">
+  <a class="logo" href="#"><i><b></b><b></b><b></b><b></b></i><span>HUGO TEODORO<small>MARCENARIA</small></span></a>
+  <ul><li><a href="#sobre">Sobre</a></li><li><a href="#projetos">Projetos</a></li><li><a href="#processo">Processo</a></li><li><a href="#agendar">Agendar visita</a></li></ul>
+  <button class="menu-btn" type="button" data-menu="header.nav ul" aria-label="Abrir menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div></header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow" data-reveal>Marcenaria sob medida</div>
+    <h1 data-split="0.1">Móveis planejados feitos para durar.</h1>
+    <div class="bar" data-reveal="left" style="--d:.45s"></div>
+    <p data-reveal style="--d:.55s">Cozinhas, armários e nichos desenhados para o seu espaço, com madeira de verdade e atenção a cada detalhe.</p>
+  </div>
+  <div class="seal" data-float><div><b>5,0</b>no Google</div></div>
+</section>
+
+<section id="sobre" tabindex="-1">
+  <div class="wrap">
+    <div class="about">
+      <div class="pic" data-reveal="left">
+        <img src="img/cozinha-amarela.jpg" alt="Cozinha com armários amarelos e prateleiras de madeira" style="object-position:center 35%">
+        <span class="hot" style="left:30%;top:30%"></span><span class="hot" style="left:62%;top:58%"></span><span class="hot" style="left:80%;top:22%"></span>
+      </div>
+      <div data-reveal="right">
+        <div class="eyebrow">Sobre</div>
+        <h2>Marcenaria, design e sustentabilidade.</h2>
+        <div class="bar"></div>
+        <p class="lead">Projeto, fabricação e instalação de móveis sob medida.</p>
+        <p>Cada peça nasce da conversa com o cliente: medidas, uso do dia a dia e o acabamento que combina com a casa.</p>
+        <div style="margin-top:28px"><a class="btn" href="#agendar">Pedir orçamento <span>→</span></a></div>
+      </div>
+    </div>
+    <div class="feats" id="processo" data-stagger="0.12">
+      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M6 21V8l6-5 6 5v13M10 21v-6h4v6"/></svg></div><div><h3>Feito para o seu espaço</h3><p>Medição no local e projeto pensado para o ambiente.</p></div></div>
+      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 22c4-3 7-7 7-12a7 7 0 0 0-14 0c0 5 3 9 7 12zM12 22V10M9 13l3-3 3 3"/></svg></div><div><h3>Madeira com propósito</h3><p>Escolha de materiais com foco em durabilidade.</p></div></div>
+      <div class="feat"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h10l6 6v10H4zM14 4v6h6M8 14h8M8 18h5"/></svg></div><div><h3>Orçamento personalizado</h3><p>Proposta detalhada antes de começar.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="what" id="projetos">
+  <div class="wrap">
+    <div data-reveal="left">
+      <div class="eyebrow">O que fazemos</div>
+      <h2>Transforme a sua casa.</h2>
+      <div class="bar"></div>
+      <p class="lead">Móveis sob medida.</p>
+      <p>Da cozinha completa ao nicho da sala, cada projeto é feito à mão e instalado pela nossa equipe.</p>
+      <a class="btn" href="https://www.instagram.com/porhugoteodoro/">Ver mais projetos</a>
+    </div>
+    <div class="cards" data-stagger="0.12">
+      <div class="card"><img src="img/cozinha-clara.jpg" alt="Cozinha clara com armários de madeira"><span>Cozinhas</span></div>
+      <div class="card"><img src="img/armario.jpg" alt="Armário com prateleiras ao lado da janela"><span>Armários</span></div>
+      <div class="card"><img src="img/nicho.jpg" alt="Nicho escuro para xícaras na parede"><span>Nichos</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap work">
+    <div class="reel" data-reveal="zoom"><video src="img/reel-1.mp4" autoplay muted loop playsinline aria-label="Vídeo de tábuas de cozinha em madeira"></video></div>
+    <div data-reveal="right">
+      <div class="eyebrow">Do ateliê</div>
+      <h2>Peças pequenas, o mesmo cuidado.</h2>
+      <div class="bar"></div>
+      <p>Além dos ambientes planejados, o ateliê produz peças em madeira, como tábuas de cozinha com combinação de tons.</p>
+      <p>Acompanhe os bastidores e os projetos novos no Instagram.</p>
+      <div style="margin-top:24px"><a class="btn" href="https://www.instagram.com/porhugoteodoro/">@porhugoteodoro <span>→</span></a></div>
+    </div>
+  </div>
+</section>
+
+<section id="agendar" style="background:#fafafa;padding-bottom:0"><div class="wrap"><div class="ag" data-reveal style="--ag-accent:#c9a45c;--ag-accent-ink:#2c3139;--ag-ink:#24282f;--ag-radius:6px;--ag-field:#fff"><div class="eyebrow">Visita técnica</div><h2 style="font-size:clamp(28px,3.4vw,40px);font-weight:500;margin-top:12px">Agende a medição do seu projeto</h2><div class="bar"></div><p class="ag-sub">Conte o ambiente e as medidas aproximadas e escolha o melhor dia para a visita.</p><form class="ag-grid" data-whats="5511991598549" data-titulo="Pedido de orçamento — marcenaria" data-empresa="Hugo Teodoro Marcenaria" data-demo="true" novalidate><div><label for="nome">Nome</label><input id="nome" name="nome" type="text" data-label="Nome" required></div><div><label for="tel">Telefone</label><input id="tel" name="tel" type="tel" data-label="Telefone" required placeholder="(11) 9...."></div><fieldset class="ag-full"><legend>Ambiente</legend><div class="ag-opts"><label><input type="radio" name="ambiente" value="Cozinha" data-label="Ambiente" required><span>Cozinha</span></label><label><input type="radio" name="ambiente" value="Armário / guarda-roupa" data-label="Ambiente"><span>Armário / guarda-roupa</span></label><label><input type="radio" name="ambiente" value="Nicho / painel" data-label="Ambiente"><span>Nicho / painel</span></label><label><input type="radio" name="ambiente" value="Banheiro" data-label="Ambiente"><span>Banheiro</span></label><label><input type="radio" name="ambiente" value="Outro" data-label="Ambiente"><span>Outro</span></label></div></fieldset><div class="ag-full"><label for="medidas">Medidas aproximadas</label><input id="medidas" name="medidas" type="text" data-label="Medidas aproximadas" placeholder="Ex.: parede de 3,20 m"></div><div class="ag-full"><label for="desc">Conte sua ideia</label><textarea id="desc" name="desc" data-label="Conte sua ideia" required placeholder="Ex.: armário até o teto com portas de correr, madeira clara"></textarea></div><div><label for="bairro">Bairro</label><input id="bairro" name="bairro" type="text" data-label="Bairro" required></div><div><label for="data">Dia para a visita</label><input id="data" name="data" type="date" data-label="Dia para a visita" required></div><div><label for="periodo">Período</label><select id="periodo" name="periodo" data-label="Período" required><option value="">Escolha</option><option>Manhã</option><option>Tarde</option></select></div><fieldset class="ag-full"><legend>Forma de pagamento preferida</legend><div class="ag-opts"><label><input type="radio" name="pag" value="Pix" data-label="Forma de pagamento preferida" required><span>Pix</span></label><label><input type="radio" name="pag" value="Cartão" data-label="Forma de pagamento preferida"><span>Cartão</span></label><label><input type="radio" name="pag" value="Parcelado" data-label="Forma de pagamento preferida"><span>Parcelado</span></label><label><input type="radio" name="pag" value="A combinar" data-label="Forma de pagamento preferida"><span>A combinar</span></label></div></fieldset><div class="ag-send ag-full"><button class="ag-btn" type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.5 12.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg>Agendar visita no WhatsApp</button><span class="ag-hint">Abre o WhatsApp com a mensagem pronta.</span></div></form></div></div></section>
+<section class="cta" id="orcamento">
+  <div class="wrap">
+    <div class="eyebrow">Orçamento</div>
+    <h2 style="margin-top:14px">Vamos planejar o seu projeto?</h2>
+    <p>Conte qual ambiente quer transformar e as medidas aproximadas. Respondemos com os próximos passos.</p>
+    <div class="row">
+      <a class="btn" href="tel:+5511991598549">(11) 99159-8549 <span>→</span></a>
+      <a class="btn btn-out" href="https://linktr.ee/por.hugoteodoro">Apresentação em PDF</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div><h4>Hugo Teodoro Marcenaria</h4><p>Móveis sob medida no Grajaú, zona sul de São Paulo.</p></div>
+    <div><h4>Contato</h4><ul><li>(11) 99159-8549</li><li>R. Condessa de Barral, 23</li><li>Jardim Santa Edwiges</li></ul></div>
+    <div><h4>Redes</h4><ul><li>Instagram @porhugoteodoro</li><li>Linktree por.hugoteodoro</li></ul></div>
+  </div>
+  <div class="wrap foot-bottom">Prévia do site.</div>
+</footer>
+<script src="site.js"></script>
+<script src="agendamento.js"></script>
+</body>
+</html>
