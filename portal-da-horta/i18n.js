@@ -1386,22 +1386,6 @@
   "Class",
   "Curso"
  ],
- "Participante 1": [
-  "Participant 1",
-  "Participante 1"
- ],
- "Participante 2": [
-  "Participant 2",
-  "Participante 2"
- ],
- "Participante 3": [
-  "Participant 3",
-  "Participante 3"
- ],
- "Participante 4": [
-  "Participant 4",
-  "Participante 4"
- ],
  "Como o portal foi feito": [
   "How the portal was made",
   "Cómo se hizo el portal"
