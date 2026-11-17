@@ -1382,10 +1382,6 @@
   "Teacher",
   "Profesor(a)"
  ],
- "Nome do professor ou da professora": [
-  "Teacher's name",
-  "Nombre del profesor o de la profesora"
- ],
  "Turma": [
   "Class",
   "Curso"
